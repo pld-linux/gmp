@@ -1,0 +1,2 @@
+s/configure/configure2_13/
+%{__aclocal}/autoconf regeneration dont help
