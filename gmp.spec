@@ -16,8 +16,8 @@ Summary(pt_BR):	Biblioteca de precisЦo arbitrАria da GNU
 Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
 Summary(ru):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	4.0.1
-Release:	4
+Version:	4.1
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
@@ -189,7 +189,7 @@ Bibliotecas estАticas para desenvolvimento com gmp.
 %build
 rm -f missing
 %{__libtoolize}
-aclocal
+aclocal -I mpfr
 %{__autoconf}
 %{__automake}
 %configure \
