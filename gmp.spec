@@ -4,7 +4,7 @@ Summary(fr):	Bibliothèque de calcul de précision
 Summary(pl):	Biblioteka arytmetyczna GNU
 Name:		gmp
 Version:	2.0.2
-Release:	13
+Release:	14
 Copyright:	LGPL 
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -71,7 +71,8 @@ Summary:	GNU Arbitrary Precision header files, static libraries, and documentati
 Summary(de):	Entwicklungstools für GNU MP
 Summary(fr):	Outils de développement pour la bibliothèque de calcul GMP
 Summary(pl):	Pliki nag³ówkowe i dokumentacja.
-Group:		Libraries
+Group:		Development/Libraries
+Group(pl):	Programowanie/Biblioteki
 Prereq:		/usr/sbin/fix-info-dir
 
 %description devel
@@ -153,7 +154,8 @@ install mpn/gmp-mparam.h ${RPM_BUILD_ROOT}%{_includedir}/
 
 strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
-gzip -9nf $RPM_BUILD_ROOT%{_infodir}/gmp.info*
+gzip -9nf $RPM_BUILD_ROOT%{_infodir}/gmp.info* \
+	SPEED NEWS README
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -173,7 +175,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc SPEED NEWS README
+%doc *.gz
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_includedir}/*
 %{_infodir}/gmp.info*
