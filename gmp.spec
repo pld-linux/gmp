@@ -5,10 +5,11 @@ Summary(pl):	Biblioteka arytmetyczna GNU
 Name:		gmp
 Version:	2.0.2
 Release:	14
-Copyright:	LGPL 
+License:	LGPL
 Group:		Libraries
+Group(fr):	Librairies
 Group(pl):	Biblioteki
-Source:		ftp://ftp.gnu.org/pub/gnu/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/pub/gnu/%{name}-%{version}.tar.gz
 Patch0:		gmp-shared.patch
 Patch1:		http://www.swox.com/gmp/mpf-conversions.diff.gz
 Patch2:		http://www.swox.com/gmp/gmp2.0.2p2.txt
@@ -28,43 +29,46 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The gmp package contains GNU MP, a library for arbitrary precision
-arithmetic, signed integers operations, rational numbers and floating point
-numbers. GNU MP is designed for speed, for both small and very large
-operands. GNU MP is fast for several reasons: It uses fullwords as the basic
-arithmetic type, it uses fast algorithms, it carefully optimizes assembly
-code for many CPUs' most common inner loops and it generally emphasizes
-speed over simplicity/elegance in its operations.
+arithmetic, signed integers operations, rational numbers and floating
+point numbers. GNU MP is designed for speed, for both small and very
+large operands. GNU MP is fast for several reasons: It uses fullwords
+as the basic arithmetic type, it uses fast algorithms, it carefully
+optimizes assembly code for many CPUs' most common inner loops and it
+generally emphasizes speed over simplicity/elegance in its operations.
 
-Install the gmp package if you need a fast arbitrary precision library.
+Install the gmp package if you need a fast arbitrary precision
+library.
 
 %description -l de
-Das gmp-paket enthält GNU MP, eine Library für Arithmetik bei beliebiger
-Genauigkeit, Operationen mit Intergern mit Vorzeichen, Rationale Zahlen, und
-Floating Point-Zahlen. GNU MP wurde für Geschwindigkeit sowohl für kleine
-als auch für sehr große Operanden optimiert. GNU MP ist aus mehreren Gründen
-schnell: Es benutzt fullwords als grundlegenden Arithmetik-Typ, benutzt
-schnelle Algorithmen, und benutzt Assembler-Code für verschiedene CPUs, und
+Das gmp-paket enthält GNU MP, eine Library für Arithmetik bei
+beliebiger Genauigkeit, Operationen mit Intergern mit Vorzeichen,
+Rationale Zahlen, und Floating Point-Zahlen. GNU MP wurde für
+Geschwindigkeit sowohl für kleine als auch für sehr große Operanden
+optimiert. GNU MP ist aus mehreren Gründen schnell: Es benutzt
+fullwords als grundlegenden Arithmetik-Typ, benutzt schnelle
+Algorithmen, und benutzt Assembler-Code für verschiedene CPUs, und
 legt mehr Wert auf Geschwindigkeit als auf Einfachheit der Funktionen.
 
-Installieren Sie das gmp-Paket, wenn Sie eine schnelle Library für beliebige
-Genauigket brauchen.
+Installieren Sie das gmp-Paket, wenn Sie eine schnelle Library für
+beliebige Genauigket brauchen.
 
 %description -l fr
 Ce package contient la bibliothèque GNU MP. Cette dernière permet de
-calculer avec une grande précision sur des nombres entiers, rationnels ou
-même des fractions, signés ou non.  GNU MP a été conçue pour être rapide
-pour les petits nombres ainsi que les très grands grâce à plusieurs
-techniques (calcul sur plusieurs chiffres hexa simultanés, algorithmes
-optimisés, utilisation de l'assembleur pour les routines critiques) parfois
-au détriment de la simplicité ou l'élégance.
+calculer avec une grande précision sur des nombres entiers, rationnels
+ou même des fractions, signés ou non. GNU MP a été conçue pour être
+rapide pour les petits nombres ainsi que les très grands grâce à
+plusieurs techniques (calcul sur plusieurs chiffres hexa simultanés,
+algorithmes optimisés, utilisation de l'assembleur pour les routines
+critiques) parfois au détriment de la simplicité ou l'élégance.
 
-Installez ce package si vous avez besoin d'une bibliothèque de calcul de
-précision rapide
+Installez ce package si vous avez besoin d'une bibliothèque de calcul
+de précision rapide
 
 %description -l pl
-Pakiet zawiera bibliotekê arytmetyczn± wysokiej precyzji. Daje ona dostêp do
-szerokiego grona szybkich funkcji arytmetycznych dzia³aj±cych na liczbach
-ca³kowitych, rzeczywistych i zmiennoprzecinkowych.
+Pakiet zawiera bibliotekê arytmetyczn± wysokiej precyzji. Daje ona
+dostêp do szerokiego grona szybkich funkcji arytmetycznych
+dzia³aj±cych na liczbach ca³kowitych, rzeczywistych i
+zmiennoprzecinkowych.
 
 %package devel
 Summary:	GNU Arbitrary Precision header files, static libraries, and documentation.
@@ -72,35 +76,38 @@ Summary(de):	Entwicklungstools für GNU MP
 Summary(fr):	Outils de développement pour la bibliothèque de calcul GMP
 Summary(pl):	Pliki nag³ówkowe i dokumentacja.
 Group:		Development/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 
 %description devel
-The static libraries, header files and documentation for using the GNU MP
-arbitrary precision library in applications.
+The static libraries, header files and documentation for using the GNU
+MP arbitrary precision library in applications.
 
 If you want to develop applications which will use the GNU MP library,
 you'll need to install the gmp-devel package.
 
 %description -l de devel
-Statische Libraries, Header Files und Dokumentation zum Benutzen der GNU MP
-Library.
+Statische Libraries, Header Files und Dokumentation zum Benutzen der
+GNU MP Library.
 
 %description -l fr devel
-Ce package comprend les bibliothèques statiques, les fichiers d'en-tête et
-la documentation nécessaires pour utiliser la bibliothèque de calcul de
-précision dans les applications.
+Ce package comprend les bibliothèques statiques, les fichiers
+d'en-tête et la documentation nécessaires pour utiliser la
+bibliothèque de calcul de précision dans les applications.
 
 Vous n'avez besoin de ce package que si vous comptez programmer des
 applications utilisant la bibliothèque GNU MP.
 
 %description -l pl devel
 Pliko nag³ówkowe i dokumentacji do gmp. Dziêki temu pakietowi bêdziesz
-móg³ tworzyæ w³asne programy z wykorzystaniem bblioteki arbitralnej z GNU.
+móg³ tworzyæ w³asne programy z wykorzystaniem bblioteki arbitralnej z
+GNU.
 
 %package static
 Summary:	GNU Arbitrary Precision static library.
 Summary(pl):	Biblioteka statyczna.
 Group:		Libraries
+Group(fr):	Librairies
 Requires:	%{name} = %{version} 
 
 %description static
