@@ -145,12 +145,12 @@ cd ../..
 %build
 libtoolize --copy --force
 %configure 
-make CC="gcc" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s"
+%{__make} CC="gcc" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	infodir=%{_infodir} \
 	libdir=%{_libdir} \
