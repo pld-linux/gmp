@@ -24,7 +24,7 @@ Patch11:	gmp-info.patch
 Patch12:	gmp-DESTDIR.patch
 Patch13:	gmp-sparc.patch
 URL:		http://www.swox.com/gmp/
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The gmp package contains GNU MP, a library for arbitrary precision
