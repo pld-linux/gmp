@@ -1,0 +1,12 @@
+diff -urN aa/gmp-4.1.2/acinclude.m4 gmp-4.1.2/acinclude.m4
+--- aa/gmp-4.1.2/acinclude.m4	2002-09-08 02:02:19.000000000 +0200
++++ gmp-4.1.2/acinclude.m4	2004-02-02 20:38:22.642544176 +0100
+@@ -834,7 +834,7 @@
+ echo ["define(<CONFIG_TOP_SRCDIR>,<\`$tmp'>)"] >>$gmp_tmpconfigm4
+ 
+ # All CPUs use asm-defs.m4 
+-echo ["include(CONFIG_TOP_SRCDIR\`/mpn/asm-defs.m4')"] >>$gmp_tmpconfigm4i
++echo "include[(CONFIG_TOP_SRCDIR\`/mpn/asm-defs.m4')]" >>$gmp_tmpconfigm4i
+ ])
+ 
+ 
