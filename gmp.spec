@@ -27,6 +27,7 @@ Patch2:		%{name}-asmcpu.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
+BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgmp3
