@@ -17,7 +17,7 @@ Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
 Summary(ru):	Библиотека GNU произвольной точности
 Name:		gmp
 Version:	4.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
@@ -180,10 +180,53 @@ Bibliotecas estАticas para desenvolvimento com gmp.
 %description static -l ru
 Это статическая библиотека GNU произвольной точности.
 
+%package c++
+Summary:	GNU arbitrary precision library - C++ interface
+Summary(pl):	Biblioteka arytmetyczna GNU - interfejs C++
+Group:		Libraries
+Requires:	%{name} = %{version}
+
+%description c++
+C++ class interface to GNU arbitrary precision library.
+
+%description c++ -l pl
+Interfejs w postaci klas C++ do biblioteki arytmetycznej GNU.
+
+%package c++-devel
+Summary:	GNU arbitrary precition library - C++ interface headers
+Summary(pl):	Biblioteka arytmetyczna GNU - pliki nagЁСwkowe interfejsu C++
+Group:		Development/Libraries
+Requires:	%{name}-c++ = %{version}
+Requires:	%{name}-devel = %{version}
+
+%description c++-devel
+Header files for C++ class interface to GNU arbitrary precision
+library.
+
+%description c++-devel -l pl
+Pliki nagЁСwkowe interfejsu w postaci klas C++ do biblioteki
+arytmetycznej GNU.
+
+%package c++-static
+Summary:	GNU arbitrary precition library - C++ static library
+Summary(pl):	Biblioteka arytmetyczna GNU - statyczna biblioteka C++
+Group:		Development/Libraries
+Requires:	%{name}-c++-devel = %{version}
+
+%description c++-static
+Static version of C++ class interface to GNU arbitrary precision
+library.
+
+%description c++-static -l pl
+Statycza wersja interfejsu w postaci klas C++ do biblioteki
+arytmetycznej GNU.
+
 %prep
 %setup -q
 %patch0 -p1
+%if %(grep -q -e '--tag' `which libtool`; echo $?)
 %patch1 -p1
+%endif
 %patch2 -p1
 
 %build
@@ -205,13 +248,13 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS ChangeLog NEWS README
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
+%post	c++ -p /sbin/ldconfig
+%postun	c++ -p /sbin/ldconfig
 
 %post devel
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
@@ -221,15 +264,30 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%doc AUTHORS ChangeLog NEWS README
+%attr(755,root,root) %{_libdir}/libgmp.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_includedir}/*
+%attr(755,root,root) %{_libdir}/libgmp.so
+%attr(755,root,root) %{_libdir}/libgmp.la
+%{_includedir}/gmp.h
 %{_infodir}/gmp.info*
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libgmp.a
+
+%files c++
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libgmpxx.so.*.*
+
+%files c++-devel
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libgmpxx.so
+%attr(755,root,root) %{_libdir}/libgmpxx.la
+%{_includedir}/gmpxx.h
+
+%files c++-static
+%defattr(644,root,root,755)
+%{_libdir}/libgmpxx.a
