@@ -1,0 +1,24 @@
+Index: pprime_p.c
+===================================================================
+RCS file: /home/cvsfiles/gmp/mpz/pprime_p.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -2 -r1.1 -r1.2
+*** pprime_p.c	1996/05/08 07:11:03	1.1
+--- pprime_p.c	1996/09/20 01:10:50	1.2
+***************
+*** 83,88 ****
+    if (mpz_cmp_ui (n, 3L) <= 0)
+      {
+        mpz_clear (n);
+!       return mpz_cmp_ui (n, 1L) > 0;
+      }
+  
+--- 83,89 ----
+    if (mpz_cmp_ui (n, 3L) <= 0)
+      {
++       int retval = mpz_cmp_ui (n, 1L) > 0;
+        mpz_clear (n);
+!       return retval;
+      }
+  

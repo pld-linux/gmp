@@ -1,0 +1,68 @@
+*** gmp-2.0.2/mpz/invert.c	Wed May  8 09:11:06 1996
+--- gmp-current/mpz/invert.c	Tue Nov 18 18:49:02 1997
+***************
+*** 1,5 ****
+  /* mpz_invert (inv, x, n).  Find multiplicative inverse of X in Z(N).
+!    If X has an inverse, return non-zero and store inverse in INVERSE,
+!    otherwise, return 0 and put garbage in X.
+  
+  Copyright (C) 1996 Free Software Foundation, Inc.
+--- 1,5 ----
+  /* mpz_invert (inv, x, n).  Find multiplicative inverse of X in Z(N).
+!    If X has an inverse, return non-zero and store inverse in INV,
+!    otherwise, return 0 and put garbage in INV.
+  
+  Copyright (C) 1996 Free Software Foundation, Inc.
+***************
+*** 23,26 ****
+--- 23,27 ----
+  
+  #include "gmp.h"
++ #include "gmp-impl.h"
+  
+  int
+***************
+*** 34,43 ****
+  {
+    mpz_t gcd;
+!   int rv;
+  
+!   mpz_init (gcd);
+    mpz_gcdext (gcd, inverse, (mpz_ptr) 0, x, n);
+!   rv = gcd->_mp_size == 1 && (gcd->_mp_d)[0] == 1;
+!   mpz_clear (gcd);
+!   return rv;
+  }
+--- 35,66 ----
+  {
+    mpz_t gcd;
+!   mp_size_t xsize, nsize, size;
+  
+!   xsize = SIZ (x);
+!   nsize = SIZ (n);
+!   xsize = ABS (xsize);
+!   nsize = ABS (nsize);
+!   size = MAX (xsize, nsize) + 1;
+! 
+!   /* No inverse exists if the leftside operand is 0.  Likewise, no
+!      inverse exists if the mod operand is 1.  */
+!   if (xsize == 0 || (nsize == 1 && (PTR (n))[0] == 1))
+!     return 0;
+! 
+!   MPZ_TMP_INIT (gcd, size);
+    mpz_gcdext (gcd, inverse, (mpz_ptr) 0, x, n);
+! 
+!   /* If no inverse existed, return with an indication of that.  */
+!   if (gcd->_mp_size != 1 || (gcd->_mp_d)[0] != 1)
+!     return 0;
+! 
+!   /* Make sure we return a positive inverse.  */
+!   if (SIZ (inverse) < 0)
+!     {
+!       if (SIZ (n) < 0)
+! 	mpz_sub (inverse, inverse, n);
+!       else
+! 	mpz_add (inverse, inverse, n);
+!     }
+!   return 1;
+  }

@@ -1,0 +1,62 @@
+Index: add.c
+===================================================================
+RCS file: /home/cvsfiles/gmp/mpq/add.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -2 -r1.1 -r1.2
+*** add.c	1996/05/08 07:11:07	1.1
+--- add.c	1997/07/25 17:10:06	1.2
+***************
+*** 65,74 ****
+  
+        mpz_add (t, tmp1, tmp2);
+!       mpz_divexact (tmp1, &(op1->_mp_den), gcd);
+        mpz_gcd (gcd, t, gcd);
+  
+        mpz_divexact (&(rop->_mp_num), t, gcd);
+  
+!       mpz_divexact (tmp2, &(op2->_mp_den), gcd);
+        mpz_mul (&(rop->_mp_den), tmp1, tmp2);
+      }
+--- 65,74 ----
+  
+        mpz_add (t, tmp1, tmp2);
+!       mpz_divexact (tmp2, &(op1->_mp_den), gcd);
+        mpz_gcd (gcd, t, gcd);
+  
+        mpz_divexact (&(rop->_mp_num), t, gcd);
+  
+!       mpz_divexact (tmp1, &(op2->_mp_den), gcd);
+        mpz_mul (&(rop->_mp_den), tmp1, tmp2);
+      }
+Index: sub.c
+===================================================================
+RCS file: /home/cvsfiles/gmp/mpq/sub.c,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -c -2 -r1.1 -r1.2
+*** sub.c	1996/05/08 07:11:07	1.1
+--- sub.c	1997/07/25 17:10:06	1.2
+***************
+*** 65,74 ****
+  
+        mpz_sub (t, tmp1, tmp2);
+!       mpz_divexact (tmp1, &(op1->_mp_den), gcd);
+        mpz_gcd (gcd, t, gcd);
+  
+        mpz_divexact (&(rop->_mp_num), t, gcd);
+  
+!       mpz_divexact (tmp2, &(op2->_mp_den), gcd);
+        mpz_mul (&(rop->_mp_den), tmp1, tmp2);
+      }
+--- 65,74 ----
+  
+        mpz_sub (t, tmp1, tmp2);
+!       mpz_divexact (tmp2, &(op1->_mp_den), gcd);
+        mpz_gcd (gcd, t, gcd);
+  
+        mpz_divexact (&(rop->_mp_num), t, gcd);
+  
+!       mpz_divexact (tmp1, &(op2->_mp_den), gcd);
+        mpz_mul (&(rop->_mp_den), tmp1, tmp2);
+      }
