@@ -16,17 +16,14 @@ Summary(pt_BR):	Biblioteca de precisЦo arbitrАria da GNU
 Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
 Summary(ru):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	4.1
-Release:	3
+Version:	4.1.1
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-am_fix.patch
 Patch2:		%{name}-asmcpu.patch
-Patch3:		http://www.swox.com/gmp/gmp-impl.h.sparc.diff
-Patch4:		http://www.swox.com/gmp/gmpxx.h.getnum.diff
-Patch5:		http://www.swox.com/gmp/randraw.c.41.diff
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -231,9 +228,6 @@ arytmetycznej GNU.
 %patch1 -p1
 %endif
 %patch2 -p1
-%patch3 -p0
-%patch4 -p0
-%patch5 -p0
 
 %build
 rm -f missing
