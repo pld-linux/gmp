@@ -20,13 +20,6 @@ Version:	4.0.1
 Release:	2
 License:	LGPL
 Group:		Libraries
-Group(de):	Libraries
-Group(es):	Bibliotecas
-Group(fr):	Librairies
-Group(pl):	Biblioteki
-Group(pt_BR):	Bibliotecas
-Group(ru):	Библиотеки
-Group(uk):	Б╕бл╕отеки
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-am_fix.patch
@@ -121,13 +114,6 @@ Summary(pt_BR):	Arquivos de inclusЦo, bibliotecas e documentaГЦo da biblioteca g
 Summary(uk):	╤нструменти розробки для б╕бл╕отеки GNU дов╕льно╖ точност╕
 Summary(ru):	Инструменты разработки для библиотеки GNU произвольной точности
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version} 
 Obsoletes:	libgmp3-devel
 
@@ -177,13 +163,6 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com gmp
 Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕ - статична б╕бл╕отека
 Summary(ru):	Библиотека GNU произвольной точности - статическая библиотека
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version} 
 
 %description static
