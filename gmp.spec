@@ -114,7 +114,7 @@ Summary(pt_BR):	Arquivos de inclusЦo, bibliotecas e documentaГЦo da biblioteca g
 Summary(uk):	╤нструменти розробки для б╕бл╕отеки GNU дов╕льно╖ точност╕
 Summary(ru):	Инструменты разработки для библиотеки GNU произвольной точности
 Group:		Development/Libraries
-Requires:	%{name} = %{version} 
+Requires:	%{name} = %{version}
 Obsoletes:	libgmp3-devel
 
 %description devel
@@ -124,15 +124,15 @@ MP arbitrary precision library in applications.
 If you want to develop applications which will use the GNU MP library,
 you'll need to install the gmp-devel package.
 
-%description -l de devel
+%description devel -l de
 Statische Libraries, Header Files und Dokumentation zum Benutzen der
 GNU MP Library.
 
-%description -l es devel
+%description devel -l es
 Estas son las bibliotecas, archivos de inclusiСn y documentaciСn para
 usar la biblioteca GNU de precisiСn arbitraria en tus programas.
 
-%description -l fr devel
+%description devel -l fr
 Ce package comprend les bibliothХques statiques, les fichiers
 d'en-tЙte et la documentation nИcessaires pour utiliser la
 bibliothХque de calcul de prИcision dans les applications.
@@ -140,19 +140,19 @@ bibliothХque de calcul de prИcision dans les applications.
 Vous n'avez besoin de ce package que si vous comptez programmer des
 applications utilisant la bibliothХque GNU MP.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nagЁСwkowe i dokumentacja do gmp. DziЙki temu pakietowi bЙdziesz
 mСgЁ tworzyФ wЁasne programy z wykorzystaniem tej biblioteki.
 
-%description -l pt_BR devel
+%description devel -l pt_BR
 Estas sЦo as bibliotecas, arquivos de inclusЦo e documentaГЦo para
 usar a biblioteca GNU de precisЦo arbitrАria em seus programas.
 
-%description -l uk devel
+%description devel -l uk
 Це б╕бл╕отека програм╕ста, хедери та документац╕я для використання
 б╕бл╕отеки GNU дов╕льно╖ точност╕ у ваших власних програмах.
 
-%description -l ru devel
+%description devel -l ru
 Это библиотека разработчика, хедеры и документация для использования
 библиотеки GNU произвольной точности в ваших собственных программах.
 
@@ -163,21 +163,21 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com gmp
 Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕ - статична б╕бл╕отека
 Summary(ru):	Библиотека GNU произвольной точности - статическая библиотека
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version} 
+Requires:	%{name}-devel = %{version}
 
 %description static
 Static gmp library.
 
-%description -l pl static
+%description static -l pl
 Biblioteka statyczna gmp.
 
-%description -l pt_BR static
+%description static -l pt_BR
 Bibliotecas estАticas para desenvolvimento com gmp.
 
-%description -l uk static
+%description static -l uk
 Це статична б╕бл╕отека GNU дов╕льно╖ точност╕.
 
-%description -l ru static
+%description static -l ru
 Это статическая библиотека GNU произвольной точности.
 
 %prep
