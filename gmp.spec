@@ -21,6 +21,7 @@ Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
+# Source0-md5: 01c7fbd6abbb8824a22161f6c6bbdaf0
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-am_fix.patch
 Patch2:		%{name}-asmcpu.patch
