@@ -6,7 +6,7 @@
 # _with_k6	- with AMD K6 instructions		(i586 target)
 # _with_k62	- with AMD K6-2/K6-3 instructions	(i586 target)
 # _with_k7	- with AMD Athlon/Duron instructions	(i686 target)
-
+#
 Summary:	GNU arbitrary precision library
 Summary(de):	Beliebige Genauigkeits-Library
 Summary(es):	Biblioteca de precisión arbitraria de la GNU
@@ -24,9 +24,8 @@ Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-am_fix.patch
 Patch2:		%{name}-asmcpu.patch
-Patch3:		%{name}-acfix.patch
 URL:		http://www.swox.com/gmp/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -229,7 +228,6 @@ arytmetycznej GNU.
 %patch1 -p1
 %endif
 %patch2 -p1
-%patch3 -p1
 
 %build
 rm -f missing
