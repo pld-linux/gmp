@@ -17,7 +17,7 @@ Summary(pt_BR):	Biblioteca de precisão arbitrária da GNU
 Summary(es):	Biblioteca de precisión arbitraria de la GNU
 Name:		gmp
 Version:	3.1.1
-Release:	6
+Release:	7
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
