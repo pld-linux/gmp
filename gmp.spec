@@ -34,6 +34,7 @@ Patch2:		%{name}-acfix.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %ifarch i586
