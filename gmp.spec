@@ -276,7 +276,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgmp.so
-%attr(755,root,root) %{_libdir}/libgmp.la
+%{_libdir}/libgmp.la
 %{_includedir}/gmp.h
 %{_infodir}/gmp.info*
 
@@ -291,7 +291,7 @@ rm -rf $RPM_BUILD_ROOT
 %files c++-devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgmpxx.so
-%attr(755,root,root) %{_libdir}/libgmpxx.la
+%{_libdir}/libgmpxx.la
 %{_includedir}/gmpxx.h
 
 %files c++-static
