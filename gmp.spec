@@ -209,6 +209,7 @@ libtoolize --copy --force
 aclocal
 autoconf
 %configure \
+	--enable-fft \
 	--with-cpu=%{asmcpu}
 
 %{__make}
