@@ -229,6 +229,7 @@ arytmetycznej GNU.
 
 %package -n libmpfr-devel
 Summary:	A library for multiple-precision floating-point computations with exact rounding
+Summary(pl):	Biblioteka obliczeñ zmiennoprzecinkowych z wielokrotn± precyzj± i dok³adnym zaokr±glaniem
 Group:		Development/Libraries
 
 %description -n libmpfr-devel
@@ -241,6 +242,17 @@ both efficient and has a well-defined semantics. It copies the good
 ideas from the ANSI/IEEE-754 standard for double-precision
 floating-point arithmetic (53-bit mantissa).
 
+%description -n libmpfr-devel -l pl
+Biblioteka MPFT to biblioteka C do obliczeñ zmiennoprzecinkowych z
+wielokrotn± precyzj± i dok³adnym zaokr±glaniem (zwanym tak¿e poprawnym
+zaokr±glaniem). Jest oparta na bibliotece GMP wielokrotnej precyzji i
+powinna zast±piæ klasê MPF w kolejnych wydaniach GMP. G³ównym celem
+MPFR jest dostarczenie biblioteki do obliczeñ zmiennoprzecinkowych
+wielokrotnej precyzji, która jest wydajna i ma dobrze zdefiniowan±
+semantykê. Powiela dobre idee ze standardu ANSI/IEEE-754 dla
+arytmetyki zmiennoprzecinkowej podwójnej precyzji (z 53-bitow±
+mantys±).
+
 %prep
 %setup -q
 %patch0 -p1
@@ -252,7 +264,6 @@ floating-point arithmetic (53-bit mantissa).
 patch mpf/sub.c %{PATCH6}
 
 %build
-rm -f missing
 %{__libtoolize}
 %{__aclocal} -I mpfr
 %{__autoconf}
