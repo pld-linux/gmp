@@ -181,7 +181,7 @@ Biblioteka statyczna gmp.
 %description -l ru static
 Это статическая библиотека GNU произвольной точности.
 
-%description -l pt_BR devel-static
+%description -l pt_BR static
 Bibliotecas estАticas para desenvolvimento com gmp
 
 
