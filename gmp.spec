@@ -27,9 +27,6 @@ Group(pl):	Biblioteki
 Group(pt_BR):	Bibliotecas
 Group(ru):	‚…¬Ã…œ‘≈À…
 Group(uk):	‚¶¬Ã¶œ‘≈À…
-Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
-Patch0:		%{name}-info.patch
-Patch1:		%{name}-am_fix.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -43,7 +40,7 @@ Obsoletes:	libgmp3
 %ifarch i686
 %define _cpu %{?_with_p3mmx:pentium3}%{!?_with_p3mmx:%{?_with_k7:athlon}%{!?_with_k7:%{?_with_mmx:pentium2}%{!?_with_mmx:i686}}}
 %else
-%define _cpu %arch
+%define _cpu %{_arch}
 %endif
 
 %description
@@ -200,9 +197,9 @@ Biblioteka statyczna gmp.
 Bibliotecas est·ticas para desenvolvimento com gmp.
 
 %prep
-%setup -q
-%patch0 -p1
-%patch1 -p1
+
+echo %arch
+exit 1
 
 %build
 rm -f missing
