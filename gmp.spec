@@ -27,6 +27,7 @@ Patch1:		%{name}-asmcpu.patch
 Patch2:		%{name}-gcc-version.patch
 Patch3:		%{name}-amd64.patch
 Patch4:		%{name}-acinclude.patch
+Patch5:		%{name}-sparc64.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -41,7 +42,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %ifarch i686
 %define _cpu %{?with_p3mmx:pentium3}%{!?with_p3mmx:%{?with_k7:athlon}%{!?with_k7:%{?with_mmx:pentium2}%{!?with_mmx:i686}}}
 %else
-%define _cpu %{_arch}
+%define _cpu %{_target_cpu}
 %endif
 %endif
 
