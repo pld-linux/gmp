@@ -1,10 +1,19 @@
+#
+# Conditional build (only one option at time makes sense; if more specified
+#   - only "highest" is used):
+# _with_mmx	- with MMX instructions			(i586, i686 targets)
+# _with_p3mmx	- with Pentium /// MMX instructions	(i686 target)
+# _with_k6	- with AMD K6 instructions		(i586 target)
+# _with_k62	- with AMD K6-2/K6-3 instructions	(i586 target)
+# _with_k7	- with AMD Athlon/Duron instructions	(i686 target)
+#
 Summary:	GNU arbitrary precision library
 Summary(de):	Beliebige Genauigkeits-Library
 Summary(fr):	Bibliothèque de calcul de précision
 Summary(pl):	Biblioteka arytmetyczna GNU
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ GNU ÄÏ×¦ÌØÎÏ§ ÔÏÞÎÏÓÔ¦
 Summary(ru):	âÉÂÌÉÏÔÅËÁ GNU ÐÒÏÉÚ×ÏÌØÎÏÊ ÔÏÞÎÏÓÔÉ
-Summary(pt_BR):Biblioteca de precisão arbitrária da GNU
+Summary(pt_BR):	Biblioteca de precisão arbitrária da GNU
 Summary(es):	Biblioteca de precisión arbitraria de la GNU
 Name:		gmp
 Version:	3.1.1
@@ -20,8 +29,19 @@ Group(ru):	âÉÂÌÉÏÔÅËÉ
 Group(uk):	â¦ÂÌ¦ÏÔÅËÉ
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
+Patch1:		%{name}-asmcpu.patch
+Patch2:		%{name}-acfix.patch
 URL:		http://www.swox.com/gmp/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%ifarch i586
+%define asmcpu %{?_with_k62:k62}%{!?_with_k62:%{?_with_k6:k6}%{!?_with_k6:%{?_with_mmx:pentiummmx}%{!?_with_mmx:i586}}}
+%endif
+%ifarch i686
+%define asmcpu %{?_with_p3mmx:pentium3}%{!?_with_p3mmx:%{?_with_k7:athlon}%{!?_with_k7:%{?_with_mmx:pentium2}%{!?_with_mmx:i686}}}
+%endif
 
 %description
 The gmp package contains GNU MP, a library for arbitrary precision
@@ -90,7 +110,7 @@ interfaces de alto o bajo nivel.
 Summary:	GNU Arbitrary Precision header files, static libraries, and documentation
 Summary(de):	Entwicklungstools für GNU MP
 Summary(fr):	Outils de développement pour la bibliothèque de calcul GMP
-Summary(pl):	Pliki nag³ówkowe i dokumentacja
+Summary(pl):	Pliki nag³ówkowe i dokumentacja do biblioteki gmp
 Summary(uk):	¶ÎÓÔÒÕÍÅÎÔÉ ÒÏÚÒÏÂËÉ ÄÌÑ Â¦ÂÌ¦ÏÔÅËÉ GNU ÄÏ×¦ÌØÎÏ§ ÔÏÞÎÏÓÔ¦
 Summary(ru):	éÎÓÔÒÕÍÅÎÔÙ ÒÁÚÒÁÂÏÔËÉ ÄÌÑ ÂÉÂÌÉÏÔÅËÉ GNU ÐÒÏÉÚ×ÏÌØÎÏÊ ÔÏÞÎÏÓÔÉ
 Summary(pt_BR):	Arquivos de inclusão, bibliotecas e documentação da biblioteca gmp
@@ -125,9 +145,8 @@ Vous n'avez besoin de ce package que si vous comptez programmer des
 applications utilisant la bibliothèque GNU MP.
 
 %description -l pl devel
-Pliko nag³ówkowe i dokumentacji do gmp. Dziêki temu pakietowi bêdziesz
-móg³ tworzyæ w³asne programy z wykorzystaniem bblioteki arbitralnej z
-GNU.
+Pliki nag³ówkowe i dokumentacja do gmp. Dziêki temu pakietowi bêdziesz
+móg³ tworzyæ w³asne programy z wykorzystaniem tej biblioteki.
 
 %description -l uk devel
 ãÅ Â¦ÂÌ¦ÏÔÅËÁ ÐÒÏÇÒÁÍ¦ÓÔÁ, ÈÅÄÅÒÉ ÔÁ ÄÏËÕÍÅÎÔÁÃ¦Ñ ÄÌÑ ×ÉËÏÒÉÓÔÁÎÎÑ
@@ -179,10 +198,16 @@ Bibliotecas estáticas para desenvolvimento com gmp.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 %build
 libtoolize --copy --force
-%configure
+aclocal
+autoconf
+%configure \
+	--with-cpu=%{asmcpu}
+
 %{__make}
 
 %install
@@ -193,6 +218,9 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS ChangeLog
 
+%clean
+rm -rf $RPM_BUILD_ROOT
+
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
@@ -201,9 +229,6 @@ gzip -9nf AUTHORS ChangeLog
 
 %postun devel
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)

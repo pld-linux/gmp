@@ -1,0 +1,87 @@
+--- gmp-3.1.1/configure.in.orig	Wed Oct  4 23:43:29 2000
++++ gmp-3.1.1/configure.in	Fri Aug 10 22:28:52 2001
+@@ -524,7 +524,7 @@
+     GMP_CHECK_ASM_ALIGN_FILL_0x90
+ 
+     # the CPUs below wanting to know about mmx
+-    case ${target} in
++    case ${with_cpu} in
+       [pentiummmx-*-* | pentium[23]-*-* | k6*-*-* | athlon-*-*])
+ 	GMP_CHECK_ASM_MMX(tmp_mmx=yes, tmp_mmx=no)
+         ;;
+@@ -533,27 +533,27 @@
+     # default for anything not otherwise mentioned
+     path="x86"
+  
+-    case ${target} in
+-      [i[34]86*-*-*])
++    case ${with_cpu} in
++      [i[34]86*])
+         path="x86"
+         ;;
+-      k5*-*-*)
++      k5*)
+         # don't know what best suits k5
+         path="x86"
+         ;;
+-      i586*-*-* | pentium-*-*)
++      i586* | pentium)
+ 	path="x86/pentium x86"
+         ;;
+-      pentiummmx-*-*)
++      pentiummmx)
+ 	path="x86/pentium x86"
+ 	if test "$tmp_mmx" = yes; then
+           path="x86/pentium/mmx $path"
+         fi
+         ;;
+-      i686*-*-* | pentiumpro-*-*)
++      i686* | pentiumpro)
+ 	path="x86/p6 x86"
+         ;;
+-      pentium2-*-*)
++      pentium2)
+ 	path="x86/p6 x86"
+ 	# The pentium/mmx lshift and rshift are good on p6 and can be used
+         # until there's something specific for p6.
+@@ -561,7 +561,7 @@
+           path="x86/p6/mmx x86/pentium/mmx $path"
+         fi
+         ;;
+-      pentium3-*-*)
++      pentium3)
+ 	path="x86/p6 x86"
+ 	# The pentium/mmx lshift and rshift are good on p6 and can be used
+         # until there's something specific for p6.
+@@ -569,19 +569,19 @@
+           path="x86/p6/p3mmx x86/p6/mmx x86/pentium/mmx $path"
+         fi
+         ;;
+-      [k6[23]*-*-*])
++      [k6[23]*])
+ 	path="x86/k6 x86"
+ 	if test "$tmp_mmx" = yes; then
+           path="x86/k6/k62mmx x86/k6/mmx $path"
+         fi
+         ;;
+-      k6*-*-*)
++      k6*)
+ 	path="x86/k6 x86"
+ 	if test "$tmp_mmx" = yes; then
+           path="x86/k6/mmx $path"
+         fi
+         ;;
+-      athlon-*-*)
++      athlon)
+ 	path="x86/k7 x86"
+ 	if test "$tmp_mmx" = yes; then
+           path="x86/k7/mmx $path"
+@@ -764,7 +764,7 @@
+ GMP_DEFINE_RAW(["include(CONFIG_TOP_SRCDIR\`/mpn/asm-defs.m4')"], POST)
+ 
+ # Must be after asm-defs.m4
+-GMP_DEFINE_RAW("define_not_for_expansion(\`HAVE_TARGET_CPU_$target_cpu')", POST)
++GMP_DEFINE_RAW("define_not_for_expansion(\`HAVE_TARGET_CPU_$with_cpu')", POST)
+ 
+ 
+ dnl  config.m4 post-includes
