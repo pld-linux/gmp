@@ -93,17 +93,17 @@ install mpn/gmp-mparam.h ${RPM_BUILD_ROOT}/usr/include/
 
 strip --strip-unneeded $RPM_BUILD_ROOT/usr/lib/lib*.so.*.*
 
-gzip -9nf $RPM_BUILD_ROOT/usr/info/gmp.info*
+gzip -9nf $RPM_BUILD_ROOT%{_infodir}/gmp.info*
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
 %post devel
-/sbin/install-info /usr/info/gmp.info.gz /usr/info/dir
+/sbin/install-info %{_infodir}/gmp.info.gz /usr/info/dir
 
 %preun devel
 if [ "$1" = 0 ]; then
-	/sbin/install-info --delete /usr/info/gmp.info.gz /etc/info-dir
+	/sbin/install-info --delete %{_infodir}/gmp.info.gz /etc/info-dir
 fi
 
 %clean
@@ -118,7 +118,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc SPEED NEWS README
 %attr(755,root,root) /usr/lib/lib*.so
 /usr/include/*
-/usr/info/gmp.info*
+%{_infodir}/gmp.info*
 
 %files static
 %defattr(644,root,root,755)
