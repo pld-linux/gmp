@@ -7,23 +7,25 @@ Version:	2.0.2
 Release:	14
 License:	LGPL
 Group:		Libraries
+Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Source0:	ftp://ftp.gnu.org/pub/gnu/%{name}-%{version}.tar.gz
-Patch0:		gmp-shared.patch
+Patch0:		%{name}-shared.patch
 Patch1:		http://www.swox.com/gmp/mpf-conversions.diff.gz
-Patch2:		http://www.swox.com/gmp/gmp2.0.2p2.txt
-Patch3:		http://www.swox.com/gmp/gmp2.0.2p3.txt
-Patch4:		http://www.swox.com/gmp/gmp2.0.2p4.txt
-Patch5:		http://www.swox.com/gmp/gmp2.0.2p5.txt
-Patch6:		http://www.swox.com/gmp/gmp2.0.2p6.txt
-Patch7:		http://www.swox.com/gmp/gmp2.0.2p7.txt
-Patch8:		http://www.swox.com/gmp/gmp2.0.2p8.txt
-Patch9:		http://www.swox.com/gmp/gmp2.0.2p9.txt
-Patch10:	gmp-powerpc.patch
-Patch11:	gmp-info.patch
-Patch12:	gmp-DESTDIR.patch
-Patch13:	gmp-sparc.patch
+Patch2:		http://www.swox.com/gmp/%{name}2.0.2p2.txt
+Patch3:		http://www.swox.com/gmp/%{name}2.0.2p3.txt
+Patch4:		http://www.swox.com/gmp/%{name}2.0.2p4.txt
+Patch5:		http://www.swox.com/gmp/%{name}2.0.2p5.txt
+Patch6:		http://www.swox.com/gmp/%{name}2.0.2p6.txt
+Patch7:		http://www.swox.com/gmp/%{name}2.0.2p7.txt
+Patch8:		http://www.swox.com/gmp/%{name}2.0.2p8.txt
+Patch9:		http://www.swox.com/gmp/%{name}2.0.2p9.txt
+Patch10:	%{name}-powerpc.patch
+Patch11:	%{name}-info.patch
+Patch12:	%{name}-DESTDIR.patch
+Patch13:	%{name}-sparc.patch
 URL:		http://www.swox.com/gmp/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -71,11 +73,12 @@ dzia³aj±cych na liczbach ca³kowitych, rzeczywistych i
 zmiennoprzecinkowych.
 
 %package devel
-Summary:	GNU Arbitrary Precision header files, static libraries, and documentation.
+Summary:	GNU Arbitrary Precision header files, static libraries, and documentation
 Summary(de):	Entwicklungstools für GNU MP
 Summary(fr):	Outils de développement pour la bibliothèque de calcul GMP
-Summary(pl):	Pliki nag³ówkowe i dokumentacja.
+Summary(pl):	Pliki nag³ówkowe i dokumentacja
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 
@@ -104,17 +107,19 @@ móg³ tworzyæ w³asne programy z wykorzystaniem bblioteki arbitralnej z
 GNU.
 
 %package static
-Summary:	GNU Arbitrary Precision static library.
-Summary(pl):	Biblioteka statyczna.
-Group:		Libraries
-Group(fr):	Librairies
+Summary:	GNU Arbitrary Precision static library
+Summary(pl):	Biblioteka statyczna gmp
+Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version} 
 
 %description static
-Static library
+Static gmp library.
 
 %description -l pl static
-Biblioteka statyczna.
+Biblioteka statyczna gmp.
 
 %prep
 %setup -q
@@ -145,7 +150,7 @@ cd ../..
 %build
 libtoolize --copy --force
 %configure 
-%{__make} CC="gcc" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s"
+%{__make} CC="%{__cc}" CFLAGS="%{rpmcflags}" LDFLAGS="%{rpmldflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -158,10 +163,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install mpn/gmp-mparam.h ${RPM_BUILD_ROOT}%{_includedir}/
 
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
-
-gzip -9nf $RPM_BUILD_ROOT%{_infodir}/gmp.info* \
-	SPEED NEWS README
+gzip -9nf SPEED NEWS README
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
