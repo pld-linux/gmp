@@ -1,4 +1,6 @@
 #
+# FYI: gmp didn't compile with devel version of libtool (1.4e)
+#
 # Conditional build (only one option at time makes sense; if more specified
 #   - only "highest" is used):
 # _with_mmx	- with MMX instructions			(i586, i686 targets)
@@ -16,7 +18,7 @@ Summary(pt_BR):	Biblioteca de precisЦo arbitrАria da GNU
 Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
 Summary(ru):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	4.1.1
+Version:	4.1.2
 Release:	1
 License:	LGPL
 Group:		Libraries
