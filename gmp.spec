@@ -73,7 +73,6 @@ Summary(fr):	Outils de développement pour la bibliothèque de calcul GMP
 Summary(pl):	Pliki nag³ówkowe i dokumentacja.
 Group:		Development/Libraries
 Group(pl):	Programowanie/Biblioteki
-Prereq:		/usr/sbin/fix-info-dir
 
 %description devel
 The static libraries, header files and documentation for using the GNU MP
@@ -161,10 +160,10 @@ gzip -9nf $RPM_BUILD_ROOT%{_infodir}/gmp.info* \
 %postun -p /sbin/ldconfig
 
 %post devel
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun devel
-/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+[ -x /usr/sbin/fix-info-dir ] && /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
