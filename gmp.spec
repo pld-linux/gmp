@@ -27,6 +27,9 @@ Group(pl):	Biblioteki
 Group(pt_BR):	Bibliotecas
 Group(ru):	Библиотеки
 Group(uk):	Б╕бл╕отеки
+Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
+Patch0:		%{name}-info.patch
+Patch1:		%{name}-am_fix.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -197,9 +200,9 @@ Biblioteka statyczna gmp.
 Bibliotecas estАticas para desenvolvimento com gmp.
 
 %prep
-
-echo %arch
-exit 1
+%setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 rm -f missing
