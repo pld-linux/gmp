@@ -188,7 +188,7 @@ Bibliotecas estáticas para desenvolvimento com gmp.
 
 %build
 rm -f missing
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 %{__automake}
