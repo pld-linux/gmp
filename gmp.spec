@@ -88,7 +88,10 @@ make CC="gcc" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s"
 rm -rf $RPM_BUILD_ROOT
 
 make install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	infodir=%{_infodir} \
+	libdir=%{_libdir} \
+	includedir=%{_includedir}
 
 install mpn/gmp-mparam.h ${RPM_BUILD_ROOT}%{_includedir}/
 
