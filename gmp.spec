@@ -89,7 +89,7 @@ rm -rf $RPM_BUILD_ROOT
 make install \
 	prefix=$RPM_BUILD_ROOT/usr
 
-install mpn/gmp-mparam.h ${RPM_BUILD_ROOT}/usr/include/
+install mpn/gmp-mparam.h ${RPM_BUILD_ROOT}%{_includedir}/
 
 strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
@@ -117,7 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc SPEED NEWS README
 %attr(755,root,root) %{_libdir}/lib*.so
-/usr/include/*
+%{_includedir}/*
 %{_infodir}/gmp.info*
 
 %files static
