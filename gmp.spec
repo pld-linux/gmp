@@ -4,11 +4,11 @@ Summary(fr):	BibliothХque de calcul de prИcision
 Summary(pl):	Biblioteka arytmetyczna GNU
 Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
 Summary(ru):	Библиотека GNU произвольной точности
-Summary(pt_BR):	Biblioteca de precisЦo arbitrАria da GNU
+Summary(pt_BR):Biblioteca de precisЦo arbitrАria da GNU
 Summary(es):	Biblioteca de precisiСn arbitraria de la GNU
 Name:		gmp
-Version:	2.0.2
-Release:	15
+Version:	3.1.1
+Release:	5
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
@@ -16,22 +16,10 @@ Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
 Group(pt_BR):	Bibliotecas
-Group(es):	Bibliotecas
-Source0:	ftp://ftp.gnu.org/pub/gnu/%{name}-%{version}.tar.gz
-Patch0:		%{name}-shared.patch
-Patch1:		http://www.swox.com/gmp/mpf-conversions.diff.gz
-Patch2:		http://www.swox.com/gmp/%{name}2.0.2p2.txt
-Patch3:		http://www.swox.com/gmp/%{name}2.0.2p3.txt
-Patch4:		http://www.swox.com/gmp/%{name}2.0.2p4.txt
-Patch5:		http://www.swox.com/gmp/%{name}2.0.2p5.txt
-Patch6:		http://www.swox.com/gmp/%{name}2.0.2p6.txt
-Patch7:		http://www.swox.com/gmp/%{name}2.0.2p7.txt
-Patch8:		http://www.swox.com/gmp/%{name}2.0.2p8.txt
-Patch9:		http://www.swox.com/gmp/%{name}2.0.2p9.txt
-Patch10:	%{name}-powerpc.patch
-Patch11:	%{name}-info.patch
-Patch12:	%{name}-DESTDIR.patch
-Patch13:	%{name}-sparc.patch
+Group(ru):	Библиотеки
+Group(uk):	Б╕бл╕отеки
+Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
+Patch0:		%{name}-info.patch
 URL:		http://www.swox.com/gmp/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -84,18 +72,19 @@ zmiennoprzecinkowych.
 через ╕нтерфейси як низького так ╕ високого р╕вня.
 
 %description -l ru
-Это библиотека GNU произвольной точности. Сборка с ней предоставляет доступ
-к функциям для работы со сколь угодно большими числами как через низко-,
-так и через высокоуровневый интерфейс.
+Это библиотека GNU произвольной точности. Сборка с ней предоставляет
+доступ к функциям для работы со сколь угодно большими числами как
+через низко-, так и через высокоуровневый интерфейс.
 
 %description -l pt_BR
-Esta И a biblioteca GNU de precisЦo arbitrАria. Ela dА acesso a funГУes para
-manipular arbitrariamente grandes nЗmeros com interfaces de alto ou baixo nМvel.
+Esta И a biblioteca GNU de precisЦo arbitrАria. Ela dА acesso a
+funГУes para manipular arbitrariamente grandes nЗmeros com interfaces
+de alto ou baixo nМvel.
 
 %description -l es
-Esta es la biblioteca GNU de precisiСn arbitraria. Da acceso a funciones para
-manipular arbitrariamente grandes nЗmeros con interfaces de alto o bajo nivel.
-
+Esta es la biblioteca GNU de precisiСn arbitraria. Da acceso a
+funciones para manipular arbitrariamente grandes nЗmeros con
+interfaces de alto o bajo nivel.
 
 %package devel
 Summary:	GNU Arbitrary Precision header files, static libraries, and documentation
@@ -104,16 +93,17 @@ Summary(fr):	Outils de dИveloppement pour la bibliothХque de calcul GMP
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja
 Summary(uk):	╤нструменти розробки для б╕бл╕отеки GNU дов╕льно╖ точност╕
 Summary(ru):	Инструменты разработки для библиотеки GNU произвольной точности
-Summary(pt_BR):	Arquivos de inclusЦo, bibliotecas e documentaГЦo da biblioteca gmp.
-Summary(es):	Archivos de inclusiСn, bibliotecas y documentaciСn de la biblioteca gmp.
+Summary(pt_BR):	Arquivos de inclusЦo, bibliotecas e documentaГЦo da biblioteca gmp
+Summary(es):	Archivos de inclusiСn, bibliotecas y documentaciСn de la biblioteca gmp
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Group(uk):	Розробка/Б╕бл╕отеки
-Group(ru):	Разработка/Библиотеки
-Group(es):	Desarrollo/Bibliotecas
 Group(pt_BR):	Desenvolvimento/Bibliotecas
+Group(ru):	Разработка/Библиотеки
+Group(uk):	Розробка/Б╕бл╕отеки
+Requires:	%{name} = %{version} 
 
 %description devel
 The static libraries, header files and documentation for using the GNU
@@ -148,12 +138,12 @@ GNU.
 библиотеки GNU произвольной точности в ваших собственных программах.
 
 %description -l pt_BR devel
-Estas sЦo as bibliotecas, arquivos de inclusЦo e documentaГЦo para usar a
-biblioteca GNU de precisЦo arbitrАria em seus programas.
+Estas sЦo as bibliotecas, arquivos de inclusЦo e documentaГЦo para
+usar a biblioteca GNU de precisЦo arbitrАria em seus programas.
 
 %description -l es devel
-Estas son las bibliotecas, archivos de inclusiСn y documentaciСn para usar la
-biblioteca GNU de precisiСn arbitraria en tus programas.
+Estas son las bibliotecas, archivos de inclusiСn y documentaciСn para
+usar la biblioteca GNU de precisiСn arbitraria en tus programas.
 
 %package static
 Summary:	GNU Arbitrary Precision static library
@@ -163,11 +153,13 @@ Summary(ru):	Библиотека GNU произвольной точности - статическая библиотека
 Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com gmp
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Group(uk):	Розробка/Б╕бл╕отеки
+Group(pt_BR):	Desenvolvimento/Bibliotecas
 Group(ru):	Разработка/Библиотеки
-Requires:	%{name} = %{version} 
+Group(uk):	Розробка/Б╕бл╕отеки
+Requires:	%{name}-devel = %{version} 
 
 %description static
 Static gmp library.
@@ -182,52 +174,24 @@ Biblioteka statyczna gmp.
 Это статическая библиотека GNU произвольной точности.
 
 %description -l pt_BR static
-Bibliotecas estАticas para desenvolvimento com gmp
-
+Bibliotecas estАticas para desenvolvimento com gmp.
 
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-cd mpq
-%patch2 -p0
-cd ../mpn
-%patch3 -p0
-cd ../mpz/tests
-%patch4 -p0
-cd ../..
-%patch5 -p1
-cd mpq
-%patch6 -p0
-cd ../mpz
-%patch7 -p0
-cd ../mpf
-%patch8 -p0
-cd ../mpn/generic
-%patch9 -p0
-cd ../..
-%patch10 -p1
-%patch11 -p1
-%patch12 -p1
-%patch13 -p1
 
 %build
 libtoolize --copy --force
-%configure2_13
-%{__make} CC="%{__cc}" CFLAGS="%{rpmcflags}" LDFLAGS="%{rpmldflags}"
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	infodir=%{_infodir} \
-	libdir=%{_libdir} \
-	includedir=%{_includedir}
+	DESTDIR=$RPM_BUILD_ROOT
 
-install mpn/gmp-mparam.h ${RPM_BUILD_ROOT}%{_includedir}/
-
-gzip -9nf SPEED NEWS README
+gzip -9nf AUTHORS ChangeLog
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
