@@ -45,6 +45,7 @@ Obsoletes:	libgmp3
 %else
 %define _cpu %{_arch}
 %endif
+%endif
 
 %description
 The gmp package contains GNU MP, a library for arbitrary precision
