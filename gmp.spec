@@ -6,7 +6,7 @@
 # _with_k6	- with AMD K6 instructions		(i586 target)
 # _with_k62	- with AMD K6-2/K6-3 instructions	(i586 target)
 # _with_k7	- with AMD Athlon/Duron instructions	(i686 target)
-#
+
 Summary:	GNU arbitrary precision library
 Summary(de):	Beliebige Genauigkeits-Library
 Summary(fr):	Bibliothèque de calcul de précision
@@ -17,7 +17,7 @@ Summary(pt_BR):	Biblioteca de precisão arbitrária da GNU
 Summary(es):	Biblioteca de precisión arbitraria de la GNU
 Name:		gmp
 Version:	4.0
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
@@ -38,12 +38,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgmp3
 
 %ifarch i586
-%define asmcpu %{?_with_k62:k62}%{!?_with_k62:%{?_with_k6:k6}%{!?_with_k6:%{?_with_mmx:pentiummmx}%{!?_with_mmx:i586}}}
+%define _target_cpu %{?_with_k62:k62}%{!?_with_k62:%{?_with_k6:k6}%{!?_with_k6:%{?_with_mmx:pentiummmx}%{!?_with_mmx:i586}}}
 %else
 %ifarch i686
-%define asmcpu %{?_with_p3mmx:pentium3}%{!?_with_p3mmx:%{?_with_k7:athlon}%{!?_with_k7:%{?_with_mmx:pentium2}%{!?_with_mmx:i686}}}
-%else
-%define asmcpu %{_target_cpu}
+%define _target_cpu %{?_with_p3mmx:pentium3}%{!?_with_p3mmx:%{?_with_k7:athlon}%{!?_with_k7:%{?_with_mmx:pentium2}%{!?_with_mmx:i686}}}
 %endif
 %endif
 
@@ -212,8 +210,8 @@ aclocal
 autoconf
 automake -a -c
 %configure \
-	--enable-fft \
-	--with-cpu=%{asmcpu}
+	--enable-cxx \
+	--enable-fft
 
 %{__make}
 
