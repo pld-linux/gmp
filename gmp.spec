@@ -79,7 +79,7 @@ cd ..
 %patch9 -p1
 
 %build
-./configure \
+./configure %{_target} \
 	--prefix=/usr
 make CC="gcc" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s"
 
