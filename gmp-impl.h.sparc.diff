@@ -1,0 +1,10 @@
+--- gmp-impl.h.old	Mon Jul 15 09:31:46 2002
++++ gmp-impl.h	Mon Jul 15 09:31:49 2002
+@@ -2527,6 +2527,7 @@
+  || defined (_IBMR2) || defined (_ARCH_PPC)				\
+  || defined (__sh__)							\
+  || defined (__sparc) || defined (sparc)				\
++ || defined (__sparc__)  /* gcc 3.1 */                                  \
+  || defined (__we32k__)
+ #define _GMP_IEEE_FLOATS 1
+ union ieee_double_extract

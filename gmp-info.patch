@@ -1,18 +1,15 @@
-diff -Nru gmp-2.0.2/gmp.texi gmp-2.0.2.new/gmp.texi
---- gmp-2.0.2/gmp.texi	Thu Jun  6 20:26:54 1996
-+++ gmp-2.0.2.new/gmp.texi	Wed Apr 28 11:31:39 1999
-@@ -10,9 +10,11 @@
+--- gmp-3.1.1/gmp.texi.orig	Thu Oct  5 01:24:56 2000
++++ gmp-3.1.1/gmp.texi	Fri Aug 10 14:52:52 2001
+@@ -9,9 +9,10 @@
+ @end iftex
+ @comment %**end of header
  
- @ifinfo
- @format
--START-INFO-DIR-ENTRY
--* gmp: (gmp.info).               GNU Multiple Precision Arithmetic Library.
--END-INFO-DIR-ENTRY
+-@dircategory GNU libraries
 +@dircategory Libraries:
-+@direntry
+ @direntry
+-* gmp: (gmp).                   GNU Multiple Precision Arithmetic Library.
 +* gmp: (gmp).				GNU Multiple Precision Arithmetic
 +					Library
-+@end direntry
- @end format
- @end ifinfo
+ @end direntry
  
+ @c smallbook
