@@ -37,13 +37,11 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgmp3
 
-%define _saved_cpu %{_target_cpu}
-
 %ifarch i586
-%define _target_cpu %{?_with_k62:k62}%{!?_with_k62:%{?_with_k6:k6}%{!?_with_k6:%{?_with_mmx:pentiummmx}%{!?_with_mmx:i586}}}
+%define _cpu %{?_with_k62:k62}%{!?_with_k62:%{?_with_k6:k6}%{!?_with_k6:%{?_with_mmx:pentiummmx}%{!?_with_mmx:i586}}}
 %else
 %ifarch i686
-%define _target_cpu %{?_with_p3mmx:pentium3}%{!?_with_p3mmx:%{?_with_k7:athlon}%{!?_with_k7:%{?_with_mmx:pentium2}%{!?_with_mmx:i686}}}
+%define _cpu %{?_with_p3mmx:pentium3}%{!?_with_p3mmx:%{?_with_k7:athlon}%{!?_with_k7:%{?_with_mmx:pentium2}%{!?_with_mmx:i686}}}
 %endif
 %endif
 
@@ -212,12 +210,11 @@ aclocal
 autoconf
 automake -a -c
 %configure \
+	--host=%{_cpu}-%{_vendor}-%{_target_os} \
 	--enable-cxx \
 	--enable-fft
 
 %{__make}
-
-%define	_target_cpu %{_saved_cpu}
 
 %install
 rm -rf $RPM_BUILD_ROOT
