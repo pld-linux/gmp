@@ -36,7 +36,7 @@ ca³kowitych, rzeczywistych i zmiennoprzecinkowych.
 Summary:	GNU Arbitrary Precision header files, static libraries, and documentation.
 Summary(pl):	Pliki nag³ówkowe i dokumentacja.
 Group:		Libraries
-PreReq:		/sbin/install-info
+Prereq:		/usr/sbin/fix-info-dir
 
 %description devel
 These are the static libraries, header files, and documentation for using
@@ -103,12 +103,10 @@ gzip -9nf $RPM_BUILD_ROOT%{_infodir}/gmp.info*
 %postun -p /sbin/ldconfig
 
 %post devel
-/sbin/install-info %{_infodir}/gmp.info.gz /usr/info/dir
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %preun devel
-if [ "$1" = 0 ]; then
-	/sbin/install-info --delete %{_infodir}/gmp.info.gz /etc/info-dir
-fi
+/usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
