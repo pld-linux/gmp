@@ -238,7 +238,7 @@ arytmetycznej GNU.
 %build
 rm -f missing
 %{__libtoolize}
-aclocal -I mpfr
+%{__aclocal} -I mpfr
 %{__autoconf}
 %{__automake}
 %configure \
