@@ -37,6 +37,8 @@ BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgmp3
 
+%define _saved_cpu %{_target_cpu}
+
 %ifarch i586
 %define _target_cpu %{?_with_k62:k62}%{!?_with_k62:%{?_with_k6:k6}%{!?_with_k6:%{?_with_mmx:pentiummmx}%{!?_with_mmx:i586}}}
 %else
@@ -214,6 +216,8 @@ automake -a -c
 	--enable-fft
 
 %{__make}
+
+%define	_target_cpu %{_saved_cpu}
 
 %install
 rm -rf $RPM_BUILD_ROOT
