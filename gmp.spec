@@ -4,7 +4,7 @@ Summary(fr):	Bibliothèque de calcul de précision
 Summary(pl):	Biblioteka arytmetyczna GNU
 Name:		gmp
 Version:	2.0.2
-Release:	12
+Release:	13
 Copyright:	LGPL 
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -161,7 +161,7 @@ gzip -9nf $RPM_BUILD_ROOT%{_infodir}/gmp.info*
 %post devel
 /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
-%preun devel
+%postun devel
 /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %clean
