@@ -1,6 +1,4 @@
 #
-# FYI: gmp didn't compile with devel version of libtool (1.4e)
-#
 # Conditional build (only one option at time makes sense; if more specified
 #   - only "highest" is used):
 # _with_mmx	- with MMX instructions			(i586, i686 targets)
@@ -26,6 +24,7 @@ Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-am_fix.patch
 Patch2:		%{name}-asmcpu.patch
+Patch3:		%{name}-acfix.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -230,6 +229,7 @@ arytmetycznej GNU.
 %patch1 -p1
 %endif
 %patch2 -p1
+%patch3 -p1
 
 %build
 rm -f missing

@@ -5,7 +5,7 @@
  AC_CANONICAL_HOST
  tmp_host=`echo $host_cpu | sed 's/\./_/'`
 +if test -z "$with_cpu" ; then
-+    with_cpu = $tmp_host
++    with_cpu=$tmp_host
 +fi
  AC_DEFINE_UNQUOTED(HAVE_HOST_CPU_$tmp_host)
 -GMP_DEFINE_RAW("define_not_for_expansion(\`HAVE_HOST_CPU_$tmp_host')", POST)
