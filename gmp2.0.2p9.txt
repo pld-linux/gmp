@@ -1,0 +1,15 @@
+*** divrem.c.~1~	Wed May  8 09:10:51 1996
+--- divrem.c	Fri Jun 18 14:14:50 1999
+***************
+*** 198,202 ****
+  	      {
+  		n2 = np[dsize - 1];
+! 		MPN_COPY_DECR (np + 1, np, dsize);
+  		np[0] = 0;
+  	      }
+--- 198,202 ----
+  	      {
+  		n2 = np[dsize - 1];
+! 		MPN_COPY_DECR (np + 1, np, dsize - 1);
+  		np[0] = 0;
+  	      }
