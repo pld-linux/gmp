@@ -17,7 +17,7 @@ Summary(pt_BR):	Biblioteca de precisЦo arbitrАria da GNU
 Summary(es):	Biblioteca de precisiСn arbitraria de la GNU
 Name:		gmp
 Version:	4.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
@@ -36,6 +36,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+Obsoletes:	libgmp3
 
 %ifarch i586
 %define asmcpu %{?_with_k62:k62}%{!?_with_k62:%{?_with_k6:k6}%{!?_with_k6:%{?_with_mmx:pentiummmx}%{!?_with_mmx:i586}}}
@@ -128,6 +129,7 @@ Group(pt_BR):	Desenvolvimento/Bibliotecas
 Group(ru):	Разработка/Библиотеки
 Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version} 
+Obsoletes:	libgmp3-devel
 
 %description devel
 The static libraries, header files and documentation for using the GNU
