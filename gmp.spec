@@ -190,8 +190,8 @@ Bibliotecas estáticas para desenvolvimento com gmp.
 rm -f missing
 libtoolize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure \
 	--with-cpu=%{_cpu} \
 	--enable-cxx \
