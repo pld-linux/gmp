@@ -1,4 +1,6 @@
 #
+# FYI: gmp didn't compile with devel version of libtool (1.4e)
+#
 # Conditional build (only one option at time makes sense; if more specified
 #   - only "highest" is used):
 # _with_mmx	- with MMX instructions			(i586, i686 targets)
@@ -16,8 +18,8 @@ Summary(pt_BR):	Biblioteca de precisЦo arbitrАria da GNU
 Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
 Summary(ru):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	4.1
-Release:	2
+Version:	4.1.2
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
@@ -232,7 +234,7 @@ arytmetycznej GNU.
 %build
 rm -f missing
 %{__libtoolize}
-aclocal -I mpfr
+%{__aclocal} -I mpfr
 %{__autoconf}
 %{__automake}
 %configure \
@@ -270,7 +272,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgmp.so
-%attr(755,root,root) %{_libdir}/libgmp.la
+%{_libdir}/libgmp.la
 %{_includedir}/gmp.h
 %{_infodir}/gmp.info*
 
@@ -285,7 +287,7 @@ rm -rf $RPM_BUILD_ROOT
 %files c++-devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgmpxx.so
-%attr(755,root,root) %{_libdir}/libgmpxx.la
+%{_libdir}/libgmpxx.la
 %{_includedir}/gmpxx.h
 
 %files c++-static
