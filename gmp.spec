@@ -16,19 +16,18 @@ Summary(pt_BR):	Biblioteca de precisão arbitrária da GNU
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ GNU ÄÏ×¦ÌØÎÏ§ ÔÏÞÎÏÓÔ¦
 Summary(ru):	âÉÂÌÉÏÔÅËÁ GNU ÐÒÏÉÚ×ÏÌØÎÏÊ ÔÏÞÎÏÓÔÉ
 Name:		gmp
-Version:	4.1.3
-Release:	3
+Version:	4.1.4
+Release:	0.1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
-# Source0-md5:	bdbb9136fa22a0ccf028d0f87aae1dd2
+# Source0-md5:	aa5e5fb3a7cdebe8c5b681a6cf4a670e
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-asmcpu.patch
 Patch2:		%{name}-gcc-version.patch
 Patch3:		%{name}-amd64.patch
 Patch4:		%{name}-acinclude.patch
 Patch5:		%{name}-sparc64.patch
-Patch6:		http://www.swox.com/gmp/patches/mpf_sub.c.diff
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -256,12 +255,11 @@ mantys±).
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
+#%%patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
-patch mpf/sub.c %{PATCH6}
+#%%patch5 -p1
 
 %build
 %{__libtoolize}
