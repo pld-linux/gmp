@@ -24,6 +24,7 @@ BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.4d-3
+BuildRequires:	texinfo
 Obsoletes:	libgmp3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
