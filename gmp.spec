@@ -4,7 +4,7 @@ Summary(fr):	Bibliothèque de calcul de précision
 Summary(pl):	Biblioteka arytmetyczna GNU
 Name:		gmp
 Version:	2.0.2
-Release:	14
+Release:	15
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
