@@ -5,7 +5,7 @@
          gcc-arm-umodsi) echo "$as_me:2936: checking whether ARM gcc unsigned division works" >&5
  echo $ECHO_N "checking whether ARM gcc unsigned division works... $ECHO_C" >&6
 -tmp_version=`$cc --version`
-+tmp_version=`$cc --dumpversion`
++tmp_version=`$cc -dumpversion`
  echo "$tmp_version" >&5
  case $tmp_version in
    2.95 | 2.95.[123])
