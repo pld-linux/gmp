@@ -1,0 +1,44 @@
+--- gmp-4.0.1/configure.in.orig	Fri Nov 30 23:36:49 2001
++++ gmp-4.0.1/configure.in	Mon Jan 28 20:37:05 2002
+@@ -43,8 +43,11 @@
+ 
+ AC_CANONICAL_HOST
+ tmp_host=`echo $host_cpu | sed 's/\./_/'`
++if test -z "$with_cpu" ; then
++    with_cpu = $tmp_host
++fi
+ AC_DEFINE_UNQUOTED(HAVE_HOST_CPU_$tmp_host)
+-GMP_DEFINE_RAW("define_not_for_expansion(\`HAVE_HOST_CPU_$tmp_host')", POST)
++GMP_DEFINE_RAW("define_not_for_expansion(\`HAVE_HOST_CPU_$with_cpu')", POST)
+ 
+ AM_INIT_AUTOMAKE(gmp, GMP_VERSION)
+ AM_CONFIG_HEADER(config.h:config.in)
+@@ -777,17 +780,17 @@
+         ;;
+     esac
+ 
+-    case $host in
+-      i486*-*-*)                  path="x86/i486 x86" ;;
+-      i586*-*-* | pentium-*-*)    path="x86/pentium x86" ;;
+-      pentiummmx-*-*)             path="x86/pentium/mmx x86/pentium x86" ;;
+-      i686*-*-* | pentiumpro-*-*) path="x86/p6 x86" ;;
+-      pentium2-*-*)   path="x86/p6/mmx x86/p6 x86" ;;
+-      pentium3-*-*)   path="x86/p6/p3mmx x86/p6/mmx x86/p6 x86";;
+-      [k6[23]*-*-*])  path="x86/k6/k62mmx x86/k6/mmx x86/k6 x86" ;;
+-      k6*-*-*)        path="x86/k6/mmx x86/k6 x86" ;;
+-      athlon-*-*)     path="x86/k7/mmx x86/k7 x86" ;;
+-      pentium4-*-*)   path="x86/pentium4/sse2 x86/pentium4/mmx x86/pentium4 x86" ;;
++    case $with_cpu in
++      i486*)                  path="x86/i486 x86" ;;
++      i586* | pentium*)    path="x86/pentium x86" ;;
++      pentiummmx*)             path="x86/pentium/mmx x86/pentium x86" ;;
++      i686* | pentiumpro*) path="x86/p6 x86" ;;
++      pentium2*)   path="x86/p6/mmx x86/p6 x86" ;;
++      pentium3*)   path="x86/p6/p3mmx x86/p6/mmx x86/p6 x86";;
++      [k6[23]*])  path="x86/k6/k62mmx x86/k6/mmx x86/k6 x86" ;;
++      k6*)        path="x86/k6/mmx x86/k6 x86" ;;
++      athlon*)     path="x86/k7/mmx x86/k7 x86" ;;
++      pentium4*)   path="x86/pentium4/sse2 x86/pentium4/mmx x86/pentium4 x86" ;;
+     esac
+     ;;
+ 

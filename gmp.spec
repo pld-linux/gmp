@@ -17,7 +17,7 @@ Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
 Summary(ru):	Библиотека GNU произвольной точности
 Name:		gmp
 Version:	4.0.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
@@ -30,6 +30,7 @@ Group(uk):	Б╕бл╕отеки
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-am_fix.patch
+Patch2:		%{name}-asmcpu.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -204,6 +205,7 @@ Bibliotecas estАticas para desenvolvimento com gmp.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 rm -f missing
@@ -212,7 +214,7 @@ aclocal
 autoconf
 automake -a -c
 %configure \
-	--host=%{_cpu}-%{_vendor}-%{_target_os} \
+	--with-cpu=%{_cpu} \
 	--enable-cxx \
 	--enable-fft
 
