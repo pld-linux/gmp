@@ -1,35 +1,33 @@
---- gmp-4.1.1/mpn/x86_64/gmp-mparam.h.x86_64	2002-12-02 15:31:31.000000000 +0100
-+++ gmp-4.1.1/mpn/x86_64/gmp-mparam.h	2002-12-02 15:31:31.000000000 +0100
-@@ -0,0 +1,27 @@
-+/* gmp-mparam.h -- Compiler/machine parameter header file.
+diff -urN gmp-4.1.2.org/configure gmp-4.1.2/configure
+--- gmp-4.1.2.org/configure	2003-11-18 18:51:52.000000000 +0100
++++ gmp-4.1.2/configure	2003-11-18 18:52:08.000000000 +0100
+@@ -2169,6 +2169,10 @@
+     path="i960"
+     ;;
+ 
++  x86_64*-*-*)
++    path="x86_64"
++    ;;
 +
-+Copyright (C) 1991, 1993, 1994 Free Software Foundation, Inc.
-+
-+This file is part of the GNU MP Library.
-+
-+The GNU MP Library is free software; you can redistribute it and/or modify
-+it under the terms of the GNU Lesser General Public License as published by
-+the Free Software Foundation; either version 2.1 of the License, or (at your
-+option) any later version.
-+
-+The GNU MP Library is distributed in the hope that it will be useful, but
-+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
-+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
-+License for more details.
-+
-+You should have received a copy of the GNU Lesser General Public License
-+along with the GNU MP Library; see the file COPYING.LIB.  If not, write to
-+the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
-+MA 02111-1307, USA. */
-+
-+#define BITS_PER_MP_LIMB 64
-+#define BYTES_PER_MP_LIMB 8
-+#define BITS_PER_LONGINT 64
-+#define BITS_PER_INT 32
-+#define BITS_PER_SHORTINT 16
-+#define BITS_PER_CHAR 8
---- gmp-4.1.1/longlong.h.x86_64	2002-11-02 00:49:20.000000000 +0100
-+++ gmp-4.1.1/longlong.h	2002-12-02 15:43:37.000000000 +0100
+   ia64*-*-*)
+     path="ia64"
+ 
+diff -urN gmp-4.1.2.org/configure.in gmp-4.1.2/configure.in
+--- gmp-4.1.2.org/configure.in	2003-11-18 18:51:52.000000000 +0100
++++ gmp-4.1.2/configure.in	2003-11-18 18:52:54.000000000 +0100
+@@ -533,6 +533,9 @@
+     path="i960"
+     ;;
+ 
++  x86_64*-*-*|amd64*-*-*)
++    path="x86_64"
++    ;;
+ 
+   ia64*-*-*)
+     path="ia64"
+diff -urN gmp-4.1.2.org/longlong.h gmp-4.1.2/longlong.h
+--- gmp-4.1.2.org/longlong.h	2003-11-18 18:51:52.000000000 +0100
++++ gmp-4.1.2/longlong.h	2003-11-18 18:52:08.000000000 +0100
 @@ -687,7 +687,7 @@
  #endif
  #endif /* 80x86 */
@@ -64,16 +62,34 @@
    } while (0)
  #endif /* x86_64 */
  
---- gmp-4.1.1/configure.x86_64	2002-11-27 23:34:02.000000000 +0100
-+++ gmp-4.1.1/configure	2002-12-02 15:31:31.000000000 +0100
-@@ -2169,6 +2169,10 @@
-     path="i960"
-     ;;
- 
-+  x86_64*-*-*)
-+    path="x86_64"
-+    ;;
+diff -urN gmp-4.1.2.org/mpn/x86_64/gmp-mparam.h gmp-4.1.2/mpn/x86_64/gmp-mparam.h
+--- gmp-4.1.2.org/mpn/x86_64/gmp-mparam.h	1970-01-01 01:00:00.000000000 +0100
++++ gmp-4.1.2/mpn/x86_64/gmp-mparam.h	2003-11-18 18:52:08.000000000 +0100
+@@ -0,0 +1,27 @@
++/* gmp-mparam.h -- Compiler/machine parameter header file.
 +
-   ia64*-*-*)
-     path="ia64"
- 
++Copyright (C) 1991, 1993, 1994 Free Software Foundation, Inc.
++
++This file is part of the GNU MP Library.
++
++The GNU MP Library is free software; you can redistribute it and/or modify
++it under the terms of the GNU Lesser General Public License as published by
++the Free Software Foundation; either version 2.1 of the License, or (at your
++option) any later version.
++
++The GNU MP Library is distributed in the hope that it will be useful, but
++WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
++or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
++License for more details.
++
++You should have received a copy of the GNU Lesser General Public License
++along with the GNU MP Library; see the file COPYING.LIB.  If not, write to
++the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
++MA 02111-1307, USA. */
++
++#define BITS_PER_MP_LIMB 64
++#define BYTES_PER_MP_LIMB 8
++#define BITS_PER_LONGINT 64
++#define BITS_PER_INT 32
++#define BITS_PER_SHORTINT 16
++#define BITS_PER_CHAR 8
