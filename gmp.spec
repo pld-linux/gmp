@@ -18,6 +18,7 @@ Patch6:		http://www.matematik.su.se/~tege/gmp/gmp2.0.2p6.txt
 Patch7:		http://www.matematik.su.se/~tege/gmp/gmp2.0.2p7.txt
 Patch8:		gmp-powerpc.patch
 Patch9:		gmp-info.patch
+Patch10:	gmp-DESTDIR.patch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -75,19 +76,19 @@ cd mpq
 cd ../mpz
 %patch7 -p0
 cd ..
-%patch8 -p1
-%patch9 -p1
+%patch8  -p1
+%patch9  -p1
+%patch10 -p1
 
 %build
-./configure %{_target} \
-	--prefix=/usr
+%configure 
 make CC="gcc" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 make install \
-	prefix=$RPM_BUILD_ROOT/usr
+	DESTDIR=$RPM_BUILD_ROOT
 
 install mpn/gmp-mparam.h ${RPM_BUILD_ROOT}%{_includedir}/
 
