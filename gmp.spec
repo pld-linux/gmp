@@ -2,6 +2,8 @@ Summary:	GNU arbitrary precision library
 Summary(de):	Beliebige Genauigkeits-Library
 Summary(fr):	BibliothХque de calcul de prИcision
 Summary(pl):	Biblioteka arytmetyczna GNU
+Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
+Summary(ru):	Библиотека GNU произвольной точности
 Name:		gmp
 Version:	2.0.2
 Release:	15
@@ -72,15 +74,29 @@ dostЙp do szerokiego grona szybkich funkcji arytmetycznych
 dziaЁaj╠cych na liczbach caЁkowitych, rzeczywistych i
 zmiennoprzecinkowych.
 
+%description -l uk
+Це б╕бл╕отека GNU дов╕льно╖ точност╕. Зб╕рка програм з нею нада╓ цим
+програмам доступ до функц╕й для роботи з як завгодно великими числами
+через ╕нтерфейси як низького так ╕ високого р╕вня.
+
+%description -l ru
+Это библиотека GNU произвольной точности. Сборка с ней предоставляет доступ
+к функциям для работы со сколь угодно большими числами как через низко-,
+так и через высокоуровневый интерфейс.
+
 %package devel
 Summary:	GNU Arbitrary Precision header files, static libraries, and documentation
 Summary(de):	Entwicklungstools fЭr GNU MP
 Summary(fr):	Outils de dИveloppement pour la bibliothХque de calcul GMP
 Summary(pl):	Pliki nagЁСwkowe i dokumentacja
+Summary(uk):	╤нструменти розробки для б╕бл╕отеки GNU дов╕льно╖ точност╕
+Summary(ru):	Инструменты разработки для библиотеки GNU произвольной точности
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(uk):	Розробка/Б╕бл╕отеки
+Group(ru):	Разработка/Библиотеки
 
 %description devel
 The static libraries, header files and documentation for using the GNU
@@ -106,13 +122,25 @@ Pliko nagЁСwkowe i dokumentacji do gmp. DziЙki temu pakietowi bЙdziesz
 mСgЁ tworzyФ wЁasne programy z wykorzystaniem bblioteki arbitralnej z
 GNU.
 
+%description -l uk devel
+Це б╕бл╕отека програм╕ста, хедери та документац╕я для використання
+б╕бл╕отеки GNU дов╕льно╖ точност╕ у ваших власних програмах.
+
+%description -l ru devel
+Это библиотека разработчика, хедеры и документация для использования
+библиотеки GNU произвольной точности в ваших собственных программах.
+
 %package static
 Summary:	GNU Arbitrary Precision static library
 Summary(pl):	Biblioteka statyczna gmp
+Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕ - статична б╕бл╕отека
+Summary(ru):	Библиотека GNU произвольной точности - статическая библиотека
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
+Group(uk):	Розробка/Б╕бл╕отеки
+Group(ru):	Разработка/Библиотеки
 Requires:	%{name} = %{version} 
 
 %description static
@@ -120,6 +148,12 @@ Static gmp library.
 
 %description -l pl static
 Biblioteka statyczna gmp.
+
+%description -l uk static
+Це статична б╕бл╕отека GNU дов╕льно╖ точност╕.
+
+%description -l ru static
+Это статическая библиотека GNU произвольной точности.
 
 %prep
 %setup -q
