@@ -1,0 +1,3 @@
+- change _target_cpu macro according to choosen architecture
+- use info patch
+- release 3
