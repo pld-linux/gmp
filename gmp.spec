@@ -16,8 +16,8 @@ Summary(ru):	Библиотека GNU произвольной точности
 Summary(pt_BR):	Biblioteca de precisЦo arbitrАria da GNU
 Summary(es):	Biblioteca de precisiСn arbitraria de la GNU
 Name:		gmp
-Version:	3.1.1
-Release:	7
+Version:	4.0
+Release:	1
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
@@ -221,7 +221,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf AUTHORS ChangeLog
+gzip -9nf AUTHORS ChangeLog NEWS README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
