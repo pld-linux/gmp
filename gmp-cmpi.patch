@@ -1,0 +1,33 @@
+--- gmp-4.1.4/mpn/powerpc32/submul_1.asm.orig	2002-03-19 00:58:10.000000000 +0000
++++ gmp-4.1.4/mpn/powerpc32/submul_1.asm	2004-11-21 01:09:51.147127736 +0000
+@@ -34,7 +34,7 @@
+ 
+ ASM_START()
+ PROLOGUE(mpn_submul_1)
+-	cmpi	cr0,r5,9	C more than 9 limbs?
++	cmpwi	cr0,r5,9	C more than 9 limbs?
+ 	bgt	cr0,L(big)	C branch if more than 9 limbs
+ 
+ 	mtctr	r5
+--- gmp-4.1.4/mpn/powerpc32/lshift.asm.orig	2002-03-30 22:28:00.000000000 +0000
++++ gmp-4.1.4/mpn/powerpc32/lshift.asm	2004-11-21 01:10:22.591347488 +0000
+@@ -35,7 +35,7 @@
+ 
+ ASM_START()
+ PROLOGUE(mpn_lshift)
+-	cmpi	cr0,r5,12	C more than 12 limbs?
++	cmpwi	cr0,r5,12	C more than 12 limbs?
+ 	slwi	r0,r5,2
+ 	add	r4,r4,r0	C make r4 point at end of s1
+ 	add	r7,r3,r0	C make r7 point at end of res
+--- gmp-4.1.4/mpn/powerpc32/addmul_1.asm.orig	2002-03-19 00:57:02.000000000 +0000
++++ gmp-4.1.4/mpn/powerpc32/addmul_1.asm	2004-11-21 00:39:02.822115848 +0000
+@@ -47,7 +47,7 @@
+ 
+ ASM_START()
+ PROLOGUE(mpn_addmul_1)
+-	cmpi	cr0,r5,9	C more than 9 limbs?
++	cmpwi	cr0,r5,9	C more than 9 limbs?
+ 	bgt	cr0,L(big)	C branch if more than 9 limbs
+ 
+ 	mtctr	r5
