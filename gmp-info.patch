@@ -10,7 +10,7 @@ diff -Nru gmp-2.0.2/gmp.texi gmp-2.0.2.new/gmp.texi
 -END-INFO-DIR-ENTRY
 +@dircategory Libraries:
 +@direntry
-+* gmp: (gmp)				GNU Multiple Precision Arithmetic
++* gmp: (gmp).				GNU Multiple Precision Arithmetic
 +					Library
 +@end direntry
  @end format
