@@ -1,0 +1,29 @@
+--- gmp-4.1.1/configure.gcc-version	2002-12-02 15:51:11.000000000 +0100
++++ gmp-4.1.1/configure	2002-12-02 15:56:56.000000000 +0100
+@@ -2939,7 +2939,7 @@
+  ;;
+         gcc-arm-umodsi) echo "$as_me:2936: checking whether ARM gcc unsigned division works" >&5
+ echo $ECHO_N "checking whether ARM gcc unsigned division works... $ECHO_C" >&6
+-tmp_version=`$cc --version`
++tmp_version=`$cc --dumpversion`
+ echo "$tmp_version" >&5
+ case $tmp_version in
+   2.95 | 2.95.[123])
+@@ -3035,7 +3035,7 @@
+             case $host in
+ m68*-*-*)
+   if test $ccbase = gcc; then
+-    case `$cc --version` in
++    case `$cc -dumpversion` in
+     2.95*) flag=-O ;;
+     esac
+   fi
+@@ -11059,7 +11059,7 @@
+ 	# GNU C++ compiler with Solaris linker
+ 	if test "$GXX" = yes && test "$with_gnu_ld" = no; then
+ 	  no_undefined_flag_CXX=' ${wl}-z ${wl}defs'
+-	  if $CC --version | egrep -v '^2\.7' > /dev/null; then
++	  if $cc -dumpversion | egrep -v '^2\.7' > /dev/null; then
+ 	    archive_cmds_CXX='$CC -shared -nostdlib $LDFLAGS $predep_objects $libobjs $deplibs $postdep_objects $linker_flags ${wl}-h $wl$soname -o $lib'
+ 	    archive_expsym_cmds_CXX='$echo "{ global:" > $lib.exp~cat $export_symbols | sed -e "s/\(.*\)/\1;/" >> $lib.exp~$echo "local: *; };" >> $lib.exp~
+ 		$CC -shared -nostdlib ${wl}-M $wl$lib.exp -o $lib $predep_objects $libobjs $deplibs $postdep_objects $linker_flags~$rm $lib.exp'

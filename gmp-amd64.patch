@@ -1,0 +1,79 @@
+--- gmp-4.1.1/mpn/x86_64/gmp-mparam.h.x86_64	2002-12-02 15:31:31.000000000 +0100
++++ gmp-4.1.1/mpn/x86_64/gmp-mparam.h	2002-12-02 15:31:31.000000000 +0100
+@@ -0,0 +1,27 @@
++/* gmp-mparam.h -- Compiler/machine parameter header file.
++
++Copyright (C) 1991, 1993, 1994 Free Software Foundation, Inc.
++
++This file is part of the GNU MP Library.
++
++The GNU MP Library is free software; you can redistribute it and/or modify
++it under the terms of the GNU Lesser General Public License as published by
++the Free Software Foundation; either version 2.1 of the License, or (at your
++option) any later version.
++
++The GNU MP Library is distributed in the hope that it will be useful, but
++WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
++or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
++License for more details.
++
++You should have received a copy of the GNU Lesser General Public License
++along with the GNU MP Library; see the file COPYING.LIB.  If not, write to
++the Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston,
++MA 02111-1307, USA. */
++
++#define BITS_PER_MP_LIMB 64
++#define BYTES_PER_MP_LIMB 8
++#define BITS_PER_LONGINT 64
++#define BITS_PER_INT 32
++#define BITS_PER_SHORTINT 16
++#define BITS_PER_CHAR 8
+--- gmp-4.1.1/longlong.h.x86_64	2002-11-02 00:49:20.000000000 +0100
++++ gmp-4.1.1/longlong.h	2002-12-02 15:43:37.000000000 +0100
+@@ -687,7 +687,7 @@
+ #endif
+ #endif /* 80x86 */
+ 
+-#if defined (__x86_64__) && W_TYPE_SIZE == 64
++#if defined (__x86_64__) && !defined (NO_ASM) && W_TYPE_SIZE == 64
+ #define add_ssaaaa(sh, sl, ah, al, bh, bl) \
+   __asm__ ("addq %5,%1\n\tadcq %3,%0"					\
+ 	   : "=r" ((UDItype)(sh)), "=&r" ((UDItype)(sl))		\
+@@ -702,10 +702,12 @@
+   __asm__ ("mulq %3"							\
+ 	   : "=a" (w0), "=d" (w1)					\
+ 	   : "%0" ((UDItype)(u)), "rm" ((UDItype)(v)))
++#if 0
+ #define udiv_qrnnd(q, r, n1, n0, dx) /* d renamed to dx avoiding "=d" */\
+   __asm__ ("divq %4"		     /* stringification in K&R C */	\
+ 	   : "=a" (q), "=d" (r)						\
+ 	   : "0" ((UDItype)(n0)), "1" ((UDItype)(n1)), "rm" ((UDItype)(dx)))
++#endif
+ #define count_leading_zeros(count, x)					\
+   do {									\
+     UDItype __cbtmp;							\
+@@ -715,8 +717,10 @@
+   } while (0)
+ #define count_trailing_zeros(count, x)					\
+   do {									\
++    UDItype __cbtmp;                                                    \
+     ASSERT ((x) != 0);							\
+-    __asm__ ("bsfq %1,%0" : "=r" (count) : "rm" ((UDItype)(x)));	\
++    __asm__ ("bsfq %1,%0" : "=r" (__cbtmp) : "rm" ((UDItype)(x)));	\
++    (count) = __cbtmp;                                                  \
+   } while (0)
+ #endif /* x86_64 */
+ 
+--- gmp-4.1.1/configure.x86_64	2002-11-27 23:34:02.000000000 +0100
++++ gmp-4.1.1/configure	2002-12-02 15:31:31.000000000 +0100
+@@ -2169,6 +2169,10 @@
+     path="i960"
+     ;;
+ 
++  x86_64*-*-*)
++    path="x86_64"
++    ;;
++
+   ia64*-*-*)
+     path="ia64"
+ 
