@@ -29,8 +29,7 @@ Group(ru):	Библиотеки
 Group(uk):	Б╕бл╕отеки
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
 Patch0:		%{name}-info.patch
-Patch1:		%{name}-asmcpu.patch
-Patch2:		%{name}-acfix.patch
+Patch1:		%{name}-am_fix.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -205,12 +204,13 @@ Bibliotecas estАticas para desenvolvimento com gmp.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
+rm -f missing
 libtoolize --copy --force
 aclocal
 autoconf
+automake -a -c
 %configure \
 	--enable-fft \
 	--with-cpu=%{asmcpu}
