@@ -1,12 +1,3 @@
-#
-# Conditional build (only one option at time makes sense; if more specified
-#   - only "highest" is used):
-%bcond_with	mmx	# with MMX instructions			(i586, i686 targets)
-%bcond_with	p3mmx	# with Pentium /// MMX instructions	(i686 target)
-%bcond_with	k6	# with AMD K6 instructions		(i586 target)
-%bcond_with	k62	# with AMD K6-2/K6-3 instructions	(i586 target)
-%bcond_with	k7	# with AMD Athlon/Duron instructions	(i686 target)
-#
 Summary:	GNU arbitrary precision library
 Summary(de):	Beliebige Genauigkeits-Library
 Summary(es):	Biblioteca de precisión arbitraria de la GNU
@@ -23,11 +14,10 @@ Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
 # Source0-md5:	aa5e5fb3a7cdebe8c5b681a6cf4a670e
 Patch0:		%{name}-info.patch
-Patch1:		%{name}-asmcpu.patch
-Patch2:		%{name}-gcc-version.patch
-Patch3:		%{name}-amd64.patch
-Patch4:		%{name}-acinclude.patch
-Patch5:		%{name}-sparc64.patch
+Patch1:		%{name}-gcc-version.patch
+Patch2:		%{name}-amd64.patch
+Patch3:		%{name}-acinclude.patch
+Patch4:		%{name}-sparc64.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -35,16 +25,6 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.4d-3
 Obsoletes:	libgmp3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%ifarch i586
-%define _cpu %{?with_k62:k62}%{!?with_k62:%{?with_k6:k6}%{!?with_k6:%{?with_mmx:pentiummmx}%{!?with_mmx:i586}}}
-%else
-%ifarch i686
-%define _cpu %{?with_p3mmx:pentium3}%{!?with_p3mmx:%{?with_k7:athlon}%{!?with_k7:%{?with_mmx:pentium2}%{!?with_mmx:i686}}}
-%else
-%define _cpu %{_target_cpu}
-%endif
-%endif
 
 %description
 The gmp package contains GNU MP, a library for arbitrary precision
@@ -255,11 +235,10 @@ mantys±).
 %prep
 %setup -q
 %patch0 -p1
-#%%patch1 -p1
+%patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-#%%patch5 -p1
 
 %build
 %{__libtoolize}
