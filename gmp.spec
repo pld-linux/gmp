@@ -227,6 +227,20 @@ library.
 Statycza wersja interfejsu w postaci klas C++ do biblioteki
 arytmetycznej GNU.
 
+%package -n libmpfr-devel
+Summary:	A library for multiple-precision floating-point computations with exact rounding
+Group:		Development/Libraries
+
+%description -n libmpfr-devel
+The MPFR library is a C library for multiple-precision floating-point
+computations with exact rounding (also called correct rounding). It is
+based on the GMP multiple-precision library and should replace the MPF
+class in further releases of GMP. The main goal of MPFR is to provide
+a library for multiple-precision floating-point computation which is
+both efficient and has a well-defined semantics. It copies the good
+ideas from the ANSI/IEEE-754 standard for double-precision
+floating-point arithmetic (53-bit mantissa).
+
 %prep
 %setup -q
 %patch0 -p1
@@ -246,7 +260,8 @@ rm -f missing
 %configure \
 	--with-cpu=%{_cpu} \
 	--enable-cxx \
-	--enable-fft
+	--enable-fft \
+	--enable-mpfr
 
 %{__make}
 
@@ -299,3 +314,10 @@ rm -rf $RPM_BUILD_ROOT
 %files c++-static
 %defattr(644,root,root,755)
 %{_libdir}/libgmpxx.a
+
+%files -n libmpfr-devel
+%defattr(644,root,root,755)
+%{_includedir}/mpf2mpfr.h
+%{_includedir}/mpfr*.h
+%{_libdir}/libmpfr.a
+%{_infodir}/mpfr.info*
