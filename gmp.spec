@@ -18,6 +18,7 @@ Patch1:		%{name}-gcc-version.patch
 Patch2:		%{name}-amd64.patch
 Patch3:		%{name}-acinclude.patch
 Patch4:		%{name}-sparc64.patch
+Patch5:		%{name}-cmpi.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -239,6 +240,7 @@ mantys±).
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 %{__libtoolize}
