@@ -50,18 +50,6 @@ diff -urN gmp-4.1.2.org/longlong.h gmp-4.1.2/longlong.h
  #define count_leading_zeros(count, x)					\
    do {									\
      UDItype __cbtmp;							\
-@@ -715,8 +717,10 @@
-   } while (0)
- #define count_trailing_zeros(count, x)					\
-   do {									\
-+    UDItype __cbtmp;                                                    \
-     ASSERT ((x) != 0);							\
--    __asm__ ("bsfq %1,%0" : "=r" (count) : "rm" ((UDItype)(x)));	\
-+    __asm__ ("bsfq %1,%0" : "=r" (__cbtmp) : "rm" ((UDItype)(x)));	\
-+    (count) = __cbtmp;                                                  \
-   } while (0)
- #endif /* x86_64 */
- 
 diff -urN gmp-4.1.2.org/mpn/x86_64/gmp-mparam.h gmp-4.1.2/mpn/x86_64/gmp-mparam.h
 --- gmp-4.1.2.org/mpn/x86_64/gmp-mparam.h	1970-01-01 01:00:00.000000000 +0100
 +++ gmp-4.1.2/mpn/x86_64/gmp-mparam.h	2003-11-18 18:52:08.000000000 +0100
