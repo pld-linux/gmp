@@ -149,7 +149,7 @@ cd ../..
 
 %build
 libtoolize --copy --force
-%configure 
+%configure2_13
 %{__make} CC="%{__cc}" CFLAGS="%{rpmcflags}" LDFLAGS="%{rpmldflags}"
 
 %install
