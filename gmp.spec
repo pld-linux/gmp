@@ -1,11 +1,11 @@
 #
 # Conditional build (only one option at time makes sense; if more specified
 #   - only "highest" is used):
-# _with_mmx	- with MMX instructions			(i586, i686 targets)
-# _with_p3mmx	- with Pentium /// MMX instructions	(i686 target)
-# _with_k6	- with AMD K6 instructions		(i586 target)
-# _with_k62	- with AMD K6-2/K6-3 instructions	(i586 target)
-# _with_k7	- with AMD Athlon/Duron instructions	(i686 target)
+%bcond_with	mmx	# with MMX instructions			(i586, i686 targets)
+%bcond_with	p3mmx	# with Pentium /// MMX instructions	(i686 target)
+%bcond_with	k6	# with AMD K6 instructions		(i586 target)
+%bcond_with	k62	# with AMD K6-2/K6-3 instructions	(i586 target)
+%bcond_with	k7	# with AMD Athlon/Duron instructions	(i686 target)
 #
 Summary:	GNU arbitrary precision library
 Summary(de):	Beliebige Genauigkeits-Library
@@ -23,24 +23,23 @@ Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
 # Source0-md5: 01c7fbd6abbb8824a22161f6c6bbdaf0
 Patch0:		%{name}-info.patch
-Patch1:		%{name}-am_fix.patch
-Patch2:		%{name}-asmcpu.patch
-Patch3:		%{name}-gcc-version.patch
-Patch4:		%{name}-amd64.patch
-Patch5:		%{name}-acinclude.patch
+Patch1:		%{name}-asmcpu.patch
+Patch2:		%{name}-gcc-version.patch
+Patch3:		%{name}-amd64.patch
+Patch4:		%{name}-acinclude.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:1.4d-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgmp3
 
 %ifarch i586
-%define _cpu %{?_with_k62:k62}%{!?_with_k62:%{?_with_k6:k6}%{!?_with_k6:%{?_with_mmx:pentiummmx}%{!?_with_mmx:i586}}}
+%define _cpu %{?with_k62:k62}%{!?with_k62:%{?with_k6:k6}%{!?with_k6:%{?with_mmx:pentiummmx}%{!?with_mmx:i586}}}
 %else
 %ifarch i686
-%define _cpu %{?_with_p3mmx:pentium3}%{!?_with_p3mmx:%{?_with_k7:athlon}%{!?_with_k7:%{?_with_mmx:pentium2}%{!?_with_mmx:i686}}}
+%define _cpu %{?with_p3mmx:pentium3}%{!?with_p3mmx:%{?with_k7:athlon}%{!?with_k7:%{?with_mmx:pentium2}%{!?with_mmx:i686}}}
 %else
 %define _cpu %{_arch}
 %endif
@@ -229,13 +228,10 @@ arytmetycznej GNU.
 %prep
 %setup -q
 %patch0 -p1
-%if %(grep -q -e '--tag' `which libtool`; echo $?)
 %patch1 -p1
-%endif
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
-%patch5 -p1
 
 %build
 rm -f missing
