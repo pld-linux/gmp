@@ -17,7 +17,7 @@ Summary(pt_BR):	Biblioteca de precisão arbitrária da GNU
 Summary(es):	Biblioteca de precisión arbitraria de la GNU
 Name:		gmp
 Version:	4.0
-Release:	3
+Release:	4
 License:	LGPL
 Group:		Libraries
 Group(de):	Libraries
@@ -42,7 +42,8 @@ Obsoletes:	libgmp3
 %else
 %ifarch i686
 %define _cpu %{?_with_p3mmx:pentium3}%{!?_with_p3mmx:%{?_with_k7:athlon}%{!?_with_k7:%{?_with_mmx:pentium2}%{!?_with_mmx:i686}}}
-%endif
+%else
+%define _cpu %arch
 %endif
 
 %description
