@@ -27,6 +27,7 @@ Patch1:		%{name}-am_fix.patch
 Patch2:		%{name}-asmcpu.patch
 Patch3:		%{name}-gcc-version.patch
 Patch4:		%{name}-amd64.patch
+Patch5:		%{name}-acinclude.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -234,6 +235,7 @@ arytmetycznej GNU.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 rm -f missing
