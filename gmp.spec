@@ -2,7 +2,7 @@ Summary:	GNU arbitrary precision library
 Summary(pl):	Biblioteka arytmetyczna GNU
 Name:		gmp
 Version:	2.0.2
-Release:	10
+Release:	11
 Copyright:	LGPL 
 Group:		Libraries
 Group(pl):	Biblioteki
@@ -129,6 +129,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.a
 
 %changelog
+* Sat May 29 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.0.2-11]
+- now package is FHS 2.0 compliant,
+- recompiled on new rpm.
+
 * Wed Apr 28 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.0.2-10]
 - standarized {un}registering info pages (added gmp-info.patch),
