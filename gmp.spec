@@ -16,7 +16,8 @@ Patch4:		http://www.matematik.su.se/~tege/gmp/gmp2.0.2p4.txt
 Patch5:		http://www.matematik.su.se/~tege/gmp/gmp2.0.2p5.txt
 Patch6:		http://www.matematik.su.se/~tege/gmp/gmp2.0.2p6.txt
 Patch7:		http://www.matematik.su.se/~tege/gmp/gmp2.0.2p7.txt
-Patch20:	gmp-2.0.2-powerpc.patch
+Patch8:		gmp-powerpc.patch
+Patch9:		gmp-info.patch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -60,10 +61,6 @@ Biblioteka statyczna.
 %prep
 %setup -q
 %patch0 -p1
-%patch20 -p1
-
-# The patches from the gmp homepage are a bit messy to include via the %patch
-# macro.  If anyone knows a better way, they're welcome to change this...
 %patch1 -p1
 cd mpq
 %patch2 -p0
@@ -77,20 +74,26 @@ cd mpq
 %patch6 -p0
 cd ../mpz
 %patch7 -p0
+cd ..
+%patch8 -p1
+%patch9 -p1
 
 %build
-libtoolize --copy --force
-./configure --prefix=/usr
-make CFLAGS="${RPM_OPT_FLAGS}"
+./configure \
+	--prefix=/usr
+make CC="gcc" CFLAGS="$RPM_OPT_FLAGS" LDFLAGS="-s"
 
 %install
-[ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf $RPM_BUILD_ROOT
-mkdir -p ${RPM_BUILD_ROOT}/usr/lib ${RPM_BUILD_ROOT}/usr/info \
-         ${RPM_BUILD_ROOT}/usr/include
+rm -rf $RPM_BUILD_ROOT
 
-make CFLAGS="${RPM_OPT_FLAGS}" prefix=${RPM_BUILD_ROOT}/usr install
-gzip -9nf ${RPM_BUILD_ROOT}/usr/info/gmp.info*
-install -m 644 mpn/gmp-mparam.h ${RPM_BUILD_ROOT}/usr/include/
+make install \
+	prefix=$RPM_BUILD_ROOT/usr
+
+install mpn/gmp-mparam.h ${RPM_BUILD_ROOT}/usr/include/
+
+strip --strip-unneeded $RPM_BUILD_ROOT/usr/lib/lib*.so.*.*
+
+gzip -9nf $RPM_BUILD_ROOT/usr/info/gmp.info*
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -107,20 +110,28 @@ fi
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr ( - root root -)
-%doc COPYING
-/usr/lib/libgmp.so.*.*
+%defattr(644,root,root,755)
+%attr(755,root,root) /usr/lib/lib*.so.*.*
 
 %files devel
-%defattr ( - root root -)
+%defattr(644,root,root,755)
 %doc SPEED NEWS README
-/usr/lib/libgmp.so
-/usr/lib/libgmp.a
-/usr/include/gmp.h
-/usr/include/gmp-mparam.h
+%attr(755,root,root) /usr/lib/lib*.so
+/usr/include/*
 /usr/info/gmp.info*
 
+%files static
+%defattr(644,root,root,755)
+/usr/lib/lib*.a
+
 %changelog
+* Wed Apr 28 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.0.2-10]
+- standarized {un}registering info pages (added gmp-info.patch),
+- /sbin/ldconfig is now runed as -p parameter in %post{un},
+- added static subpackage,
+- added stripping shared libraries.
+
 * Sat Mar 14 1999 David Kuestler <kuestler@zeta.org.au>
 - Patch for PowerPC ( Power Mac )
 
