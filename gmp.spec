@@ -16,12 +16,12 @@ Summary(pt_BR):	Biblioteca de precisЦo arbitrАria da GNU
 Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
 Summary(ru):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	4.1.2
-Release:	3
+Version:	4.1.3
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
-# Source0-md5: 01c7fbd6abbb8824a22161f6c6bbdaf0
+# Source0-md5:	bdbb9136fa22a0ccf028d0f87aae1dd2
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-asmcpu.patch
 Patch2:		%{name}-gcc-version.patch
@@ -32,8 +32,8 @@ BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool >= 2:1.4d-3
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libgmp3
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %ifarch i586
 %define _cpu %{?with_k62:k62}%{!?with_k62:%{?with_k6:k6}%{!?with_k6:%{?with_mmx:pentiummmx}%{!?with_mmx:i586}}}
@@ -118,7 +118,7 @@ Summary(pt_BR):	Arquivos de inclusЦo, bibliotecas e documentaГЦo da biblioteca g
 Summary(uk):	╤нструменти розробки для б╕бл╕отеки GNU дов╕льно╖ точност╕
 Summary(ru):	Инструменты разработки для библиотеки GNU произвольной точности
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Obsoletes:	libgmp3-devel
 
 %description devel
@@ -167,7 +167,7 @@ Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com gmp
 Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕ - статична б╕бл╕отека
 Summary(ru):	Библиотека GNU произвольной точности - статическая библиотека
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static gmp library.
@@ -188,7 +188,7 @@ Bibliotecas estАticas para desenvolvimento com gmp.
 Summary:	GNU arbitrary precision library - C++ interface
 Summary(pl):	Biblioteka arytmetyczna GNU - interfejs C++
 Group:		Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description c++
 C++ class interface to GNU arbitrary precision library.
@@ -200,8 +200,8 @@ Interfejs w postaci klas C++ do biblioteki arytmetycznej GNU.
 Summary:	GNU arbitrary precition library - C++ interface headers
 Summary(pl):	Biblioteka arytmetyczna GNU - pliki nagЁСwkowe interfejsu C++
 Group:		Development/Libraries
-Requires:	%{name}-c++ = %{version}
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-c++ = %{version}-%{release}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description c++-devel
 Header files for C++ class interface to GNU arbitrary precision
@@ -215,7 +215,7 @@ arytmetycznej GNU.
 Summary:	GNU arbitrary precition library - C++ static library
 Summary(pl):	Biblioteka arytmetyczna GNU - statyczna biblioteka C++
 Group:		Development/Libraries
-Requires:	%{name}-c++-devel = %{version}
+Requires:	%{name}-c++-devel = %{version}-%{release}
 
 %description c++-static
 Static version of C++ class interface to GNU arbitrary precision
