@@ -223,7 +223,7 @@ ideas from the ANSI/IEEE-754 standard for double-precision
 floating-point arithmetic (53-bit mantissa).
 
 %description -n libmpfr-devel -l pl
-Biblioteka MPFT to biblioteka C do obliczeñ zmiennoprzecinkowych z
+Biblioteka MPFR to biblioteka C do obliczeñ zmiennoprzecinkowych z
 wielokrotn± precyzj± i dok³adnym zaokr±glaniem (zwanym tak¿e poprawnym
 zaokr±glaniem). Jest oparta na bibliotece GMP wielokrotnej precyzji i
 powinna zast±piæ klasê MPF w kolejnych wydaniach GMP. G³ównym celem
