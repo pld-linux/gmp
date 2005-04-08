@@ -8,7 +8,7 @@ Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
 Summary(ru):	Библиотека GNU произвольной точности
 Name:		gmp
 Version:	4.1.4
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
@@ -19,6 +19,8 @@ Patch2:		%{name}-amd64.patch
 Patch3:		%{name}-acinclude.patch
 Patch4:		%{name}-sparc64.patch
 Patch5:		%{name}-cmpi.patch
+# http://www.swox.com/gmp/#STATUS
+Patch6:		%{name}-site.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -242,6 +244,7 @@ mantys╠).
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p0
 
 %build
 %{__libtoolize}
