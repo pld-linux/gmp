@@ -252,7 +252,7 @@ mantys±).
 %{__autoconf}
 %{__automake}
 %configure \
-	--with-cpu=%{_cpu} \
+	--with-cpu=%{_target_cpu} \
 	--enable-cxx \
 	--enable-fft \
 	--enable-mpfr
