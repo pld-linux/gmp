@@ -8,10 +8,10 @@ Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ GNU ÄÏ×¦ÌØÎÏ§ ÔÏÞÎÏÓÔ¦
 Summary(ru):	âÉÂÌÉÏÔÅËÁ GNU ÐÒÏÉÚ×ÏÌØÎÏÊ ÔÏÞÎÏÓÔÉ
 Name:		gmp
 Version:	4.1.4
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
-Source0:	ftp://ftp.gnu.org/pub/gnu/gmp/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.gz
 # Source0-md5:	aa5e5fb3a7cdebe8c5b681a6cf4a670e
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-gcc-version.patch
@@ -130,8 +130,8 @@ Vous n'avez besoin de ce package que si vous comptez programmer des
 applications utilisant la bibliothèque GNU MP.
 
 %description devel -l pl
-Pliki nag³ówkowe i dokumentacja do gmp. Dziêki temu pakietowi bêdziesz
-móg³ tworzyæ w³asne programy z wykorzystaniem tej biblioteki.
+Pliki nag³ówkowe i dokumentacja do gmp. Dziêki temu pakietowi mo¿na
+tworzyæ w³asne programy z wykorzystaniem tej biblioteki.
 
 %description devel -l pt_BR
 Estas são as bibliotecas, arquivos de inclusão e documentação para
@@ -277,6 +277,12 @@ rm -rf $RPM_BUILD_ROOT
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun devel
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+
+%post -n libmpfr-devel
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+
+%postun -n libmpfr-devel
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %files
