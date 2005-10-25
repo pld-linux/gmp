@@ -13,3 +13,19 @@
  @end direntry
  
  @c smallbook
+--- gmp-4.1.4/mpfr/mpfr.texi.orig	2004-04-20 03:39:42.000000000 +0200
++++ gmp-4.1.4/mpfr/mpfr.texi	2005-10-25 21:34:57.146579112 +0200
+@@ -10,9 +10,10 @@
+ 
+ @ifinfo
+ @format
+-START-INFO-DIR-ENTRY
+-* mpfr: (mpfr.info).               Multiple Precision Floating-Point Reliable Library.
+-END-INFO-DIR-ENTRY
++@dircategory Libraries:
++@direntry
++* mpfr: (mpfr).				Multiple Precision Floating-Point Reliable Library
++@end direntry
+ @end format
+ @end ifinfo
+ 
