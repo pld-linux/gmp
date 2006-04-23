@@ -7,20 +7,13 @@ Summary(pt_BR):	Biblioteca de precisão arbitrária da GNU
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ GNU ÄÏ×¦ÌØÎÏ§ ÔÏÞÎÏÓÔ¦
 Summary(ru):	âÉÂÌÉÏÔÅËÁ GNU ÐÒÏÉÚ×ÏÌØÎÏÊ ÔÏÞÎÏÓÔÉ
 Name:		gmp
-Version:	4.1.4
-Release:	3
+Version:	4.2
+Release:	1
 License:	LGPL
 Group:		Libraries
-Source0:	ftp://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.gz
-# Source0-md5:	aa5e5fb3a7cdebe8c5b681a6cf4a670e
+Source0:	ftp://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.bz2
+# Source0-md5:	aa4a4534e8870ab8ba3c093239057cca
 Patch0:		%{name}-info.patch
-Patch1:		%{name}-gcc-version.patch
-Patch2:		%{name}-amd64.patch
-Patch3:		%{name}-acinclude.patch
-Patch4:		%{name}-sparc64.patch
-Patch5:		%{name}-cmpi.patch
-# http://www.swox.com/gmp/#STATUS
-Patch6:		%{name}-site.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -210,52 +203,19 @@ library.
 Statycza wersja interfejsu w postaci klas C++ do biblioteki
 arytmetycznej GNU.
 
-%package -n libmpfr-devel
-Summary:	A library for multiple-precision floating-point computations with exact rounding
-Summary(pl):	Biblioteka obliczeñ zmiennoprzecinkowych z wielokrotn± precyzj± i dok³adnym zaokr±glaniem
-Group:		Development/Libraries
-
-%description -n libmpfr-devel
-The MPFR library is a C library for multiple-precision floating-point
-computations with exact rounding (also called correct rounding). It is
-based on the GMP multiple-precision library and should replace the MPF
-class in further releases of GMP. The main goal of MPFR is to provide
-a library for multiple-precision floating-point computation which is
-both efficient and has a well-defined semantics. It copies the good
-ideas from the ANSI/IEEE-754 standard for double-precision
-floating-point arithmetic (53-bit mantissa).
-
-%description -n libmpfr-devel -l pl
-Biblioteka MPFR to biblioteka C do obliczeñ zmiennoprzecinkowych z
-wielokrotn± precyzj± i dok³adnym zaokr±glaniem (zwanym tak¿e poprawnym
-zaokr±glaniem). Jest oparta na bibliotece GMP wielokrotnej precyzji i
-powinna zast±piæ klasê MPF w kolejnych wydaniach GMP. G³ównym celem
-MPFR jest dostarczenie biblioteki do obliczeñ zmiennoprzecinkowych
-wielokrotnej precyzji, która jest wydajna i ma dobrze zdefiniowan±
-semantykê. Powiela dobre idee ze standardu ANSI/IEEE-754 dla
-arytmetyki zmiennoprzecinkowej podwójnej precyzji (z 53-bitow±
-mantys±).
-
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p0
 
 %build
 %{__libtoolize}
-%{__aclocal} -I mpfr
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
 	--with-cpu=%{_target_cpu} \
 	--enable-cxx \
-	--enable-fft \
-	--enable-mpfr
+	--enable-fft
 
 %{__make}
 
@@ -277,12 +237,6 @@ rm -rf $RPM_BUILD_ROOT
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %postun devel
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
-%post -n libmpfr-devel
-[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
-
-%postun -n libmpfr-devel
 [ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
 
 %files
@@ -314,10 +268,3 @@ rm -rf $RPM_BUILD_ROOT
 %files c++-static
 %defattr(644,root,root,755)
 %{_libdir}/libgmpxx.a
-
-%files -n libmpfr-devel
-%defattr(644,root,root,755)
-%{_includedir}/mpf2mpfr.h
-%{_includedir}/mpfr*.h
-%{_libdir}/libmpfr.a
-%{_infodir}/mpfr.info*
