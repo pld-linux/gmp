@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	tests	# don't perform tests
+#
 Summary:	GNU arbitrary precision library
 Summary(de):	Beliebige Genauigkeits-Library
 Summary(es):	Biblioteca de precisión arbitraria de la GNU
@@ -218,6 +222,7 @@ arytmetycznej GNU.
 	--enable-fft
 
 %{__make}
+%{?with_tests:%{__make} check}
 
 %install
 rm -rf $RPM_BUILD_ROOT
