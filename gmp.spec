@@ -11,12 +11,12 @@ Summary(pt_BR):	Biblioteca de precisão arbitrária da GNU
 Summary(uk):	â¦ÂÌ¦ÏÔÅËÁ GNU ÄÏ×¦ÌØÎÏ§ ÔÏÞÎÏÓÔ¦
 Summary(ru):	âÉÂÌÉÏÔÅËÁ GNU ÐÒÏÉÚ×ÏÌØÎÏÊ ÔÏÞÎÏÓÔÉ
 Name:		gmp
-Version:	4.2
+Version:	4.2.1
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.bz2
-# Source0-md5:	aa4a4534e8870ab8ba3c093239057cca
+# Source0-md5:	091c56e0e1cca6b09b17b69d47ef18e3
 Patch0:		%{name}-info.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
