@@ -12,7 +12,7 @@ Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
 Summary(ru):	Библиотека GNU произвольной точности
 Name:		gmp
 Version:	4.2.1
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.bz2
