@@ -1,5 +1,6 @@
 #
 # Conditional build:
+%bcond_without	cxx	# don't build C++ interface
 %bcond_without	tests	# don't perform tests
 #
 Summary:	GNU arbitrary precision library
@@ -21,7 +22,7 @@ Patch0:		%{name}-info.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	libstdc++-devel
+%{?with_cxx:BuildRequires:	libstdc++-devel}
 BuildRequires:	libtool >= 2:1.4d-3
 BuildRequires:	texinfo
 Obsoletes:	libgmp3
@@ -218,7 +219,7 @@ arytmetycznej GNU.
 %{__automake}
 %configure \
 	--with-cpu=%{_target_cpu} \
-	--enable-cxx \
+	%{?with_cxx:--enable-cxx} \
 	--enable-fft
 
 %{__make}
@@ -260,6 +261,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libgmp.a
 
+%if %{with cxx}
 %files c++
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgmpxx.so.*.*
@@ -273,3 +275,4 @@ rm -rf $RPM_BUILD_ROOT
 %files c++-static
 %defattr(644,root,root,755)
 %{_libdir}/libgmpxx.a
+%endif
