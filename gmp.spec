@@ -13,12 +13,13 @@ Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
 Summary(ru):	Библиотека GNU произвольной точности
 Name:		gmp
 Version:	4.2.1
-Release:	2
+Release:	3
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.bz2
 # Source0-md5:	091c56e0e1cca6b09b17b69d47ef18e3
 Patch0:		%{name}-info.patch
+Patch1:		%{name}-multilib.patch
 URL:		http://www.swox.com/gmp/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -211,6 +212,10 @@ arytmetycznej GNU.
 %prep
 %setup -q
 %patch0 -p1
+%ifarch %{ix86} %{x8664} ppc ppc64 s390 s390x sparc sparcv9 sparc64
+# ugly hack, don't apply on other archs (also recheck sizes on each upgrade)
+%patch1 -p1
+%endif
 
 %build
 %{__libtoolize}
