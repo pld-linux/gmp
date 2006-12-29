@@ -1,0 +1,23 @@
+--- gmp-4.2.1/gmp-h.in.orig	2006-04-11 18:10:15.000000000 +0000
++++ gmp-4.2.1/gmp-h.in	2006-12-29 02:17:26.000000000 +0000
+@@ -29,10 +29,18 @@
+ 
+ /* Instantiated by configure. */
+ #if ! defined (__GMP_WITHIN_CONFIGURE)
+-#define __GMP_BITS_PER_MP_LIMB             @BITS_PER_MP_LIMB@
++/* ugly hack: limb size differs depending on ABI */
++#if defined(__arch64__) || defined(__powerpc64__) || defined(__s390x__) || defined(__x86_64__)
++#define __GMP_BITS_PER_MP_LIMB             64
+ #define __GMP_HAVE_HOST_CPU_FAMILY_power   @HAVE_HOST_CPU_FAMILY_power@
+ #define __GMP_HAVE_HOST_CPU_FAMILY_powerpc @HAVE_HOST_CPU_FAMILY_powerpc@
+-#define GMP_LIMB_BITS                      @BITS_PER_MP_LIMB@
++#define GMP_LIMB_BITS                      64
++#else
++#define __GMP_BITS_PER_MP_LIMB             32
++#define __GMP_HAVE_HOST_CPU_FAMILY_power   @HAVE_HOST_CPU_FAMILY_power@
++#define __GMP_HAVE_HOST_CPU_FAMILY_powerpc @HAVE_HOST_CPU_FAMILY_powerpc@
++#define GMP_LIMB_BITS                      32
++#endif
+ #define GMP_NAIL_BITS                      @GMP_NAIL_BITS@
+ #endif
+ #define GMP_NUMB_BITS     (GMP_LIMB_BITS - GMP_NAIL_BITS)
