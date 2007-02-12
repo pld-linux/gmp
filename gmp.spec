@@ -4,13 +4,13 @@
 %bcond_without	tests	# don't perform tests
 #
 Summary:	GNU arbitrary precision library
-Summary(de):	Beliebige Genauigkeits-Library
-Summary(es):	Biblioteca de precisiСn arbitraria de la GNU
-Summary(fr):	BibliothХque de calcul de prИcision
-Summary(pl):	Biblioteka arytmetyczna GNU
-Summary(pt_BR):	Biblioteca de precisЦo arbitrАria da GNU
-Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕
-Summary(ru):	Библиотека GNU произвольной точности
+Summary(de.UTF-8):   Beliebige Genauigkeits-Library
+Summary(es.UTF-8):   Biblioteca de precisiцЁn arbitraria de la GNU
+Summary(fr.UTF-8):   Bibliothц╗que de calcul de prц╘cision
+Summary(pl.UTF-8):   Biblioteka arytmetyczna GNU
+Summary(pt_BR.UTF-8):   Biblioteca de precisцёo arbitrц║ria da GNU
+Summary(uk.UTF-8):   п▒я√п╠п╩я√п╬я┌п╣п╨п╟ GNU п╢п╬п╡я√п╩я▄п╫п╬я≈ я┌п╬я┤п╫п╬я│я┌я√
+Summary(ru.UTF-8):   п▒п╦п╠п╩п╦п╬я┌п╣п╨п╟ GNU п©я─п╬п╦п╥п╡п╬п╩я▄п╫п╬п╧ я┌п╬я┤п╫п╬я│я┌п╦
 Name:		gmp
 Version:	4.2.1
 Release:	3
@@ -41,66 +41,66 @@ generally emphasizes speed over simplicity/elegance in its operations.
 Install the gmp package if you need a fast arbitrary precision
 library.
 
-%description -l de
-Das gmp-paket enthДlt GNU MP, eine Library fЭr Arithmetik bei
+%description -l de.UTF-8
+Das gmp-paket enthц╓lt GNU MP, eine Library fц╪r Arithmetik bei
 beliebiger Genauigkeit, Operationen mit Intergern mit Vorzeichen,
-Rationale Zahlen, und Floating Point-Zahlen. GNU MP wurde fЭr
-Geschwindigkeit sowohl fЭr kleine als auch fЭr sehr groъe Operanden
-optimiert. GNU MP ist aus mehreren GrЭnden schnell: Es benutzt
+Rationale Zahlen, und Floating Point-Zahlen. GNU MP wurde fц╪r
+Geschwindigkeit sowohl fц╪r kleine als auch fц╪r sehr groц÷e Operanden
+optimiert. GNU MP ist aus mehreren Grц╪nden schnell: Es benutzt
 fullwords als grundlegenden Arithmetik-Typ, benutzt schnelle
-Algorithmen, und benutzt Assembler-Code fЭr verschiedene CPUs, und
+Algorithmen, und benutzt Assembler-Code fц╪r verschiedene CPUs, und
 legt mehr Wert auf Geschwindigkeit als auf Einfachheit der Funktionen.
 
-Installieren Sie das gmp-Paket, wenn Sie eine schnelle Library fЭr
+Installieren Sie das gmp-Paket, wenn Sie eine schnelle Library fц╪r
 beliebige Genauigket brauchen.
 
-%description -l es
-Esta es la biblioteca GNU de precisiСn arbitraria. Da acceso a
-funciones para manipular arbitrariamente grandes nЗmeros con
+%description -l es.UTF-8
+Esta es la biblioteca GNU de precisiцЁn arbitraria. Da acceso a
+funciones para manipular arbitrariamente grandes nц╨meros con
 interfaces de alto o bajo nivel.
 
-%description -l fr
-Ce package contient la bibliothХque GNU MP. Cette derniХre permet de
-calculer avec une grande prИcision sur des nombres entiers, rationnels
-ou mЙme des fractions, signИs ou non. GNU MP a ИtИ conГue pour Йtre
-rapide pour les petits nombres ainsi que les trХs grands grБce Ю
-plusieurs techniques (calcul sur plusieurs chiffres hexa simultanИs,
-algorithmes optimisИs, utilisation de l'assembleur pour les routines
-critiques) parfois au dИtriment de la simplicitИ ou l'ИlИgance.
+%description -l fr.UTF-8
+Ce package contient la bibliothц╗que GNU MP. Cette derniц╗re permet de
+calculer avec une grande prц╘cision sur des nombres entiers, rationnels
+ou mц╙me des fractions, signц╘s ou non. GNU MP a ц╘tц╘ conц╖ue pour ц╙tre
+rapide pour les petits nombres ainsi que les trц╗s grands grц╒ce ц═
+plusieurs techniques (calcul sur plusieurs chiffres hexa simultanц╘s,
+algorithmes optimisц╘s, utilisation de l'assembleur pour les routines
+critiques) parfois au dц╘triment de la simplicitц╘ ou l'ц╘lц╘gance.
 
-Installez ce package si vous avez besoin d'une bibliothХque de calcul
-de prИcision rapide
+Installez ce package si vous avez besoin d'une bibliothц╗que de calcul
+de prц╘cision rapide
 
-%description -l pl
-Pakiet zawiera bibliotekЙ arytmetyczn╠ wysokiej precyzji. Daje ona
-dostЙp do szerokiego grona szybkich funkcji arytmetycznych
-dziaЁaj╠cych na liczbach caЁkowitych, rzeczywistych i
+%description -l pl.UTF-8
+Pakiet zawiera bibliotekд≥ arytmetycznд┘ wysokiej precyzji. Daje ona
+dostд≥p do szerokiego grona szybkich funkcji arytmetycznych
+dziaе┌ajд┘cych na liczbach caе┌kowitych, rzeczywistych i
 zmiennoprzecinkowych.
 
-%description -l pt_BR
-Esta И a biblioteca GNU de precisЦo arbitrАria. Ela dА acesso a
-funГУes para manipular arbitrariamente grandes nЗmeros com interfaces
-de alto ou baixo nМvel.
+%description -l pt_BR.UTF-8
+Esta ц╘ a biblioteca GNU de precisцёo arbitrц║ria. Ela dц║ acesso a
+funц╖ц╣es para manipular arbitrariamente grandes nц╨meros com interfaces
+de alto ou baixo nц╜vel.
 
-%description -l uk
-Це б╕бл╕отека GNU дов╕льно╖ точност╕. Зб╕рка програм з нею нада╓ цим
-програмам доступ до функц╕й для роботи з як завгодно великими числами
-через ╕нтерфейси як низького так ╕ високого р╕вня.
+%description -l uk.UTF-8
+п╕п╣ п╠я√п╠п╩я√п╬я┌п╣п╨п╟ GNU п╢п╬п╡я√п╩я▄п╫п╬я≈ я┌п╬я┤п╫п╬я│я┌я√. п≈п╠я√я─п╨п╟ п©я─п╬пЁя─п╟п╪ п╥ п╫п╣я▌ п╫п╟п╢п╟я■ я├п╦п╪
+п©я─п╬пЁя─п╟п╪п╟п╪ п╢п╬я│я┌я┐п© п╢п╬ я└я┐п╫п╨я├я√п╧ п╢п╩я▐ я─п╬п╠п╬я┌п╦ п╥ я▐п╨ п╥п╟п╡пЁп╬п╢п╫п╬ п╡п╣п╩п╦п╨п╦п╪п╦ я┤п╦я│п╩п╟п╪п╦
+я┤п╣я─п╣п╥ я√п╫я┌п╣я─я└п╣п╧я│п╦ я▐п╨ п╫п╦п╥я▄п╨п╬пЁп╬ я┌п╟п╨ я√ п╡п╦я│п╬п╨п╬пЁп╬ я─я√п╡п╫я▐.
 
-%description -l ru
-Это библиотека GNU произвольной точности. Сборка с ней предоставляет
-доступ к функциям для работы со сколь угодно большими числами как
-через низко-, так и через высокоуровневый интерфейс.
+%description -l ru.UTF-8
+п╜я┌п╬ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╟ GNU п©я─п╬п╦п╥п╡п╬п╩я▄п╫п╬п╧ я┌п╬я┤п╫п╬я│я┌п╦. п║п╠п╬я─п╨п╟ я│ п╫п╣п╧ п©я─п╣п╢п╬я│я┌п╟п╡п╩я▐п╣я┌
+п╢п╬я│я┌я┐п© п╨ я└я┐п╫п╨я├п╦я▐п╪ п╢п╩я▐ я─п╟п╠п╬я┌я▀ я│п╬ я│п╨п╬п╩я▄ я┐пЁп╬п╢п╫п╬ п╠п╬п╩я▄я┬п╦п╪п╦ я┤п╦я│п╩п╟п╪п╦ п╨п╟п╨
+я┤п╣я─п╣п╥ п╫п╦п╥п╨п╬-, я┌п╟п╨ п╦ я┤п╣я─п╣п╥ п╡я▀я│п╬п╨п╬я┐я─п╬п╡п╫п╣п╡я▀п╧ п╦п╫я┌п╣я─я└п╣п╧я│.
 
 %package devel
 Summary:	GNU Arbitrary Precision header files, static libraries, and documentation
-Summary(de):	Entwicklungstools fЭr GNU MP
-Summary(es):	Archivos de inclusiСn, bibliotecas y documentaciСn de la biblioteca gmp
-Summary(fr):	Outils de dИveloppement pour la bibliothХque de calcul GMP
-Summary(pl):	Pliki nagЁСwkowe i dokumentacja do biblioteki gmp
-Summary(pt_BR):	Arquivos de inclusЦo, bibliotecas e documentaГЦo da biblioteca gmp
-Summary(uk):	╤нструменти розробки для б╕бл╕отеки GNU дов╕льно╖ точност╕
-Summary(ru):	Инструменты разработки для библиотеки GNU произвольной точности
+Summary(de.UTF-8):   Entwicklungstools fц╪r GNU MP
+Summary(es.UTF-8):   Archivos de inclusiцЁn, bibliotecas y documentaciцЁn de la biblioteca gmp
+Summary(fr.UTF-8):   Outils de dц╘veloppement pour la bibliothц╗que de calcul GMP
+Summary(pl.UTF-8):   Pliki nagе┌цЁwkowe i dokumentacja do biblioteki gmp
+Summary(pt_BR.UTF-8):   Arquivos de inclusцёo, bibliotecas e documentaц╖цёo da biblioteca gmp
+Summary(uk.UTF-8):   п├п╫я│я┌я─я┐п╪п╣п╫я┌п╦ я─п╬п╥я─п╬п╠п╨п╦ п╢п╩я▐ п╠я√п╠п╩я√п╬я┌п╣п╨п╦ GNU п╢п╬п╡я√п╩я▄п╫п╬я≈ я┌п╬я┤п╫п╬я│я┌я√
+Summary(ru.UTF-8):   п≤п╫я│я┌я─я┐п╪п╣п╫я┌я▀ я─п╟п╥я─п╟п╠п╬я┌п╨п╦ п╢п╩я▐ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ GNU п©я─п╬п╦п╥п╡п╬п╩я▄п╫п╬п╧ я┌п╬я┤п╫п╬я│я┌п╦
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	libgmp3-devel
@@ -112,77 +112,77 @@ MP arbitrary precision library in applications.
 If you want to develop applications which will use the GNU MP library,
 you'll need to install the gmp-devel package.
 
-%description devel -l de
+%description devel -l de.UTF-8
 Statische Libraries, Header Files und Dokumentation zum Benutzen der
 GNU MP Library.
 
-%description devel -l es
-Estas son las bibliotecas, archivos de inclusiСn y documentaciСn para
-usar la biblioteca GNU de precisiСn arbitraria en tus programas.
+%description devel -l es.UTF-8
+Estas son las bibliotecas, archivos de inclusiцЁn y documentaciцЁn para
+usar la biblioteca GNU de precisiцЁn arbitraria en tus programas.
 
-%description devel -l fr
-Ce package comprend les bibliothХques statiques, les fichiers
-d'en-tЙte et la documentation nИcessaires pour utiliser la
-bibliothХque de calcul de prИcision dans les applications.
+%description devel -l fr.UTF-8
+Ce package comprend les bibliothц╗ques statiques, les fichiers
+d'en-tц╙te et la documentation nц╘cessaires pour utiliser la
+bibliothц╗que de calcul de prц╘cision dans les applications.
 
 Vous n'avez besoin de ce package que si vous comptez programmer des
-applications utilisant la bibliothХque GNU MP.
+applications utilisant la bibliothц╗que GNU MP.
 
-%description devel -l pl
-Pliki nagЁСwkowe i dokumentacja do gmp. DziЙki temu pakietowi mo©na
-tworzyФ wЁasne programy z wykorzystaniem tej biblioteki.
+%description devel -l pl.UTF-8
+Pliki nagе┌цЁwkowe i dokumentacja do gmp. Dziд≥ki temu pakietowi moе╪na
+tworzyд┤ wе┌asne programy z wykorzystaniem tej biblioteki.
 
-%description devel -l pt_BR
-Estas sЦo as bibliotecas, arquivos de inclusЦo e documentaГЦo para
-usar a biblioteca GNU de precisЦo arbitrАria em seus programas.
+%description devel -l pt_BR.UTF-8
+Estas sцёo as bibliotecas, arquivos de inclusцёo e documentaц╖цёo para
+usar a biblioteca GNU de precisцёo arbitrц║ria em seus programas.
 
-%description devel -l uk
-Це б╕бл╕отека програм╕ста, хедери та документац╕я для використання
-б╕бл╕отеки GNU дов╕льно╖ точност╕ у ваших власних програмах.
+%description devel -l uk.UTF-8
+п╕п╣ п╠я√п╠п╩я√п╬я┌п╣п╨п╟ п©я─п╬пЁя─п╟п╪я√я│я┌п╟, я┘п╣п╢п╣я─п╦ я┌п╟ п╢п╬п╨я┐п╪п╣п╫я┌п╟я├я√я▐ п╢п╩я▐ п╡п╦п╨п╬я─п╦я│я┌п╟п╫п╫я▐
+п╠я√п╠п╩я√п╬я┌п╣п╨п╦ GNU п╢п╬п╡я√п╩я▄п╫п╬я≈ я┌п╬я┤п╫п╬я│я┌я√ я┐ п╡п╟я┬п╦я┘ п╡п╩п╟я│п╫п╦я┘ п©я─п╬пЁя─п╟п╪п╟я┘.
 
-%description devel -l ru
-Это библиотека разработчика, хедеры и документация для использования
-библиотеки GNU произвольной точности в ваших собственных программах.
+%description devel -l ru.UTF-8
+п╜я┌п╬ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╟ я─п╟п╥я─п╟п╠п╬я┌я┤п╦п╨п╟, я┘п╣п╢п╣я─я▀ п╦ п╢п╬п╨я┐п╪п╣п╫я┌п╟я├п╦я▐ п╢п╩я▐ п╦я│п©п╬п╩я▄п╥п╬п╡п╟п╫п╦я▐
+п╠п╦п╠п╩п╦п╬я┌п╣п╨п╦ GNU п©я─п╬п╦п╥п╡п╬п╩я▄п╫п╬п╧ я┌п╬я┤п╫п╬я│я┌п╦ п╡ п╡п╟я┬п╦я┘ я│п╬п╠я│я┌п╡п╣п╫п╫я▀я┘ п©я─п╬пЁя─п╟п╪п╪п╟я┘.
 
 %package static
 Summary:	GNU Arbitrary Precision static library
-Summary(pl):	Biblioteka statyczna gmp
-Summary(pt_BR):	Bibliotecas estАticas para desenvolvimento com gmp
-Summary(uk):	Б╕бл╕отека GNU дов╕льно╖ точност╕ - статична б╕бл╕отека
-Summary(ru):	Библиотека GNU произвольной точности - статическая библиотека
+Summary(pl.UTF-8):   Biblioteka statyczna gmp
+Summary(pt_BR.UTF-8):   Bibliotecas estц║ticas para desenvolvimento com gmp
+Summary(uk.UTF-8):   п▒я√п╠п╩я√п╬я┌п╣п╨п╟ GNU п╢п╬п╡я√п╩я▄п╫п╬я≈ я┌п╬я┤п╫п╬я│я┌я√ - я│я┌п╟я┌п╦я┤п╫п╟ п╠я√п╠п╩я√п╬я┌п╣п╨п╟
+Summary(ru.UTF-8):   п▒п╦п╠п╩п╦п╬я┌п╣п╨п╟ GNU п©я─п╬п╦п╥п╡п╬п╩я▄п╫п╬п╧ я┌п╬я┤п╫п╬я│я┌п╦ - я│я┌п╟я┌п╦я┤п╣я│п╨п╟я▐ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╟
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static gmp library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka statyczna gmp.
 
-%description static -l pt_BR
-Bibliotecas estАticas para desenvolvimento com gmp.
+%description static -l pt_BR.UTF-8
+Bibliotecas estц║ticas para desenvolvimento com gmp.
 
-%description static -l uk
-Це статична б╕бл╕отека GNU дов╕льно╖ точност╕.
+%description static -l uk.UTF-8
+п╕п╣ я│я┌п╟я┌п╦я┤п╫п╟ п╠я√п╠п╩я√п╬я┌п╣п╨п╟ GNU п╢п╬п╡я√п╩я▄п╫п╬я≈ я┌п╬я┤п╫п╬я│я┌я√.
 
-%description static -l ru
-Это статическая библиотека GNU произвольной точности.
+%description static -l ru.UTF-8
+п╜я┌п╬ я│я┌п╟я┌п╦я┤п╣я│п╨п╟я▐ п╠п╦п╠п╩п╦п╬я┌п╣п╨п╟ GNU п©я─п╬п╦п╥п╡п╬п╩я▄п╫п╬п╧ я┌п╬я┤п╫п╬я│я┌п╦.
 
 %package c++
 Summary:	GNU arbitrary precision library - C++ interface
-Summary(pl):	Biblioteka arytmetyczna GNU - interfejs C++
+Summary(pl.UTF-8):   Biblioteka arytmetyczna GNU - interfejs C++
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description c++
 C++ class interface to GNU arbitrary precision library.
 
-%description c++ -l pl
+%description c++ -l pl.UTF-8
 Interfejs w postaci klas C++ do biblioteki arytmetycznej GNU.
 
 %package c++-devel
 Summary:	GNU arbitrary precition library - C++ interface headers
-Summary(pl):	Biblioteka arytmetyczna GNU - pliki nagЁСwkowe interfejsu C++
+Summary(pl.UTF-8):   Biblioteka arytmetyczna GNU - pliki nagе┌цЁwkowe interfejsu C++
 Group:		Development/Libraries
 Requires:	%{name}-c++ = %{version}-%{release}
 Requires:	%{name}-devel = %{version}-%{release}
@@ -191,13 +191,13 @@ Requires:	%{name}-devel = %{version}-%{release}
 Header files for C++ class interface to GNU arbitrary precision
 library.
 
-%description c++-devel -l pl
-Pliki nagЁСwkowe interfejsu w postaci klas C++ do biblioteki
+%description c++-devel -l pl.UTF-8
+Pliki nagе┌цЁwkowe interfejsu w postaci klas C++ do biblioteki
 arytmetycznej GNU.
 
 %package c++-static
 Summary:	GNU arbitrary precition library - C++ static library
-Summary(pl):	Biblioteka arytmetyczna GNU - statyczna biblioteka C++
+Summary(pl.UTF-8):   Biblioteka arytmetyczna GNU - statyczna biblioteka C++
 Group:		Development/Libraries
 Requires:	%{name}-c++-devel = %{version}-%{release}
 
@@ -205,7 +205,7 @@ Requires:	%{name}-c++-devel = %{version}-%{release}
 Static version of C++ class interface to GNU arbitrary precision
 library.
 
-%description c++-static -l pl
+%description c++-static -l pl.UTF-8
 Statycza wersja interfejsu w postaci klas C++ do biblioteki
 arytmetycznej GNU.
 
