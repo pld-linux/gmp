@@ -4,13 +4,13 @@
 %bcond_without	tests	# don't perform tests
 #
 Summary:	GNU arbitrary precision library
-Summary(de.UTF-8):   Beliebige Genauigkeits-Library
-Summary(es.UTF-8):   Biblioteca de precisión arbitraria de la GNU
-Summary(fr.UTF-8):   Bibliothèque de calcul de précision
-Summary(pl.UTF-8):   Biblioteka arytmetyczna GNU
-Summary(pt_BR.UTF-8):   Biblioteca de precisão arbitrária da GNU
-Summary(uk.UTF-8):   Бібліотека GNU довільної точності
-Summary(ru.UTF-8):   Библиотека GNU произвольной точности
+Summary(de.UTF-8):	Beliebige Genauigkeits-Library
+Summary(es.UTF-8):	Biblioteca de precisión arbitraria de la GNU
+Summary(fr.UTF-8):	Bibliothèque de calcul de précision
+Summary(pl.UTF-8):	Biblioteka arytmetyczna GNU
+Summary(pt_BR.UTF-8):	Biblioteca de precisão arbitrária da GNU
+Summary(uk.UTF-8):	Бібліотека GNU довільної точності
+Summary(ru.UTF-8):	Библиотека GNU произвольной точности
 Name:		gmp
 Version:	4.2.1
 Release:	3
@@ -94,13 +94,13 @@ de alto ou baixo nível.
 
 %package devel
 Summary:	GNU Arbitrary Precision header files, static libraries, and documentation
-Summary(de.UTF-8):   Entwicklungstools für GNU MP
-Summary(es.UTF-8):   Archivos de inclusión, bibliotecas y documentación de la biblioteca gmp
-Summary(fr.UTF-8):   Outils de développement pour la bibliothèque de calcul GMP
-Summary(pl.UTF-8):   Pliki nagłówkowe i dokumentacja do biblioteki gmp
-Summary(pt_BR.UTF-8):   Arquivos de inclusão, bibliotecas e documentação da biblioteca gmp
-Summary(uk.UTF-8):   Інструменти розробки для бібліотеки GNU довільної точності
-Summary(ru.UTF-8):   Инструменты разработки для библиотеки GNU произвольной точности
+Summary(de.UTF-8):	Entwicklungstools für GNU MP
+Summary(es.UTF-8):	Archivos de inclusión, bibliotecas y documentación de la biblioteca gmp
+Summary(fr.UTF-8):	Outils de développement pour la bibliothèque de calcul GMP
+Summary(pl.UTF-8):	Pliki nagłówkowe i dokumentacja do biblioteki gmp
+Summary(pt_BR.UTF-8):	Arquivos de inclusão, bibliotecas e documentação da biblioteca gmp
+Summary(uk.UTF-8):	Інструменти розробки для бібліотеки GNU довільної точності
+Summary(ru.UTF-8):	Инструменты разработки для библиотеки GNU произвольной точности
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Obsoletes:	libgmp3-devel
@@ -146,10 +146,10 @@ usar a biblioteca GNU de precisão arbitrária em seus programas.
 
 %package static
 Summary:	GNU Arbitrary Precision static library
-Summary(pl.UTF-8):   Biblioteka statyczna gmp
-Summary(pt_BR.UTF-8):   Bibliotecas estáticas para desenvolvimento com gmp
-Summary(uk.UTF-8):   Бібліотека GNU довільної точності - статична бібліотека
-Summary(ru.UTF-8):   Библиотека GNU произвольной точности - статическая библиотека
+Summary(pl.UTF-8):	Biblioteka statyczna gmp
+Summary(pt_BR.UTF-8):	Bibliotecas estáticas para desenvolvimento com gmp
+Summary(uk.UTF-8):	Бібліотека GNU довільної точності - статична бібліотека
+Summary(ru.UTF-8):	Библиотека GNU произвольной точности - статическая библиотека
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -170,7 +170,7 @@ Bibliotecas estáticas para desenvolvimento com gmp.
 
 %package c++
 Summary:	GNU arbitrary precision library - C++ interface
-Summary(pl.UTF-8):   Biblioteka arytmetyczna GNU - interfejs C++
+Summary(pl.UTF-8):	Biblioteka arytmetyczna GNU - interfejs C++
 Group:		Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -182,7 +182,7 @@ Interfejs w postaci klas C++ do biblioteki arytmetycznej GNU.
 
 %package c++-devel
 Summary:	GNU arbitrary precition library - C++ interface headers
-Summary(pl.UTF-8):   Biblioteka arytmetyczna GNU - pliki nagłówkowe interfejsu C++
+Summary(pl.UTF-8):	Biblioteka arytmetyczna GNU - pliki nagłówkowe interfejsu C++
 Group:		Development/Libraries
 Requires:	%{name}-c++ = %{version}-%{release}
 Requires:	%{name}-devel = %{version}-%{release}
@@ -197,7 +197,7 @@ arytmetycznej GNU.
 
 %package c++-static
 Summary:	GNU arbitrary precition library - C++ static library
-Summary(pl.UTF-8):   Biblioteka arytmetyczna GNU - statyczna biblioteka C++
+Summary(pl.UTF-8):	Biblioteka arytmetyczna GNU - statyczna biblioteka C++
 Group:		Development/Libraries
 Requires:	%{name}-c++-devel = %{version}-%{release}
 
