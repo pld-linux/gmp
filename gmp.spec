@@ -20,7 +20,7 @@ Source0:	ftp://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.bz2
 # Source0-md5:	091c56e0e1cca6b09b17b69d47ef18e3
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-multilib.patch
-URL:		http://www.swox.com/gmp/
+URL:		http://gmplib.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 %{?with_cxx:BuildRequires:	libstdc++-devel}
