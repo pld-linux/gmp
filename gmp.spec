@@ -12,12 +12,12 @@ Summary(pt_BR.UTF-8):	Biblioteca de precisão arbitrária da GNU
 Summary(uk.UTF-8):	Бібліотека GNU довільної точності
 Summary(ru.UTF-8):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	4.2.1
-Release:	3
+Version:	4.2.2
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.bz2
-# Source0-md5:	091c56e0e1cca6b09b17b69d47ef18e3
+# Source0-md5:	7ce52531644e6d12f16911b7e3151f3f
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-multilib.patch
 URL:		http://gmplib.org/
