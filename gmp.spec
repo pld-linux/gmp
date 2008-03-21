@@ -13,7 +13,7 @@ Summary(uk.UTF-8):	Бібліотека GNU довільної точності
 Summary(ru.UTF-8):	Библиотека GNU произвольной точности
 Name:		gmp
 Version:	4.2.2
-Release:	2
+Release:	3
 License:	LGPL v3+
 Group:		Libraries
 Source0:	ftp://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.bz2
@@ -28,6 +28,8 @@ BuildRequires:	libtool >= 2:1.4d-3
 BuildRequires:	texinfo
 Obsoletes:	libgmp3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		specflags	-Wl,-z,-noexecstack
 
 %description
 The gmp package contains GNU MP, a library for arbitrary precision
