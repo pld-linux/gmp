@@ -16,7 +16,7 @@ Version:	4.2.2
 Release:	3
 License:	LGPL v3+
 Group:		Libraries
-Source0:	ftp://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.bz2
 # Source0-md5:	7ce52531644e6d12f16911b7e3151f3f
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-multilib.patch
