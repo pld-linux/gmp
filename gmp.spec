@@ -13,13 +13,14 @@ Summary(uk.UTF-8):	Бібліотека GNU довільної точності
 Summary(ru.UTF-8):	Библиотека GNU произвольной точности
 Name:		gmp
 Version:	4.2.2
-Release:	3
+Release:	4
 License:	LGPL v3+
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.bz2
 # Source0-md5:	7ce52531644e6d12f16911b7e3151f3f
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-multilib.patch
+Patch2:		%{name}-cstdio.patch
 URL:		http://gmplib.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -255,6 +256,7 @@ arytmetycznej GNU.
 # ugly hack, don't apply on other archs (also recheck sizes on each upgrade)
 %patch1 -p1
 %endif
+%patch2 -p1
 
 %build
 %{__libtoolize}
