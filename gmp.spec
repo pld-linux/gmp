@@ -12,15 +12,14 @@ Summary(pt_BR.UTF-8):	Biblioteca de precisão arbitrária da GNU
 Summary(uk.UTF-8):	Бібліотека GNU довільної точності
 Summary(ru.UTF-8):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	4.2.2
-Release:	4
+Version:	4.2.3
+Release:	1
 License:	LGPL v3+
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.bz2
-# Source0-md5:	7ce52531644e6d12f16911b7e3151f3f
+# Source0-md5:	7cc56604c03134f2c4bc1fb1ea748f6f
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-multilib.patch
-Patch2:		%{name}-cstdio.patch
 URL:		http://gmplib.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -256,7 +255,6 @@ arytmetycznej GNU.
 # ugly hack, don't apply on other archs (also recheck sizes on each upgrade)
 %patch1 -p1
 %endif
-%patch2 -p1
 
 %build
 %{__libtoolize}
@@ -284,10 +282,10 @@ rm -rf $RPM_BUILD_ROOT
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%post devel	-p	/sbin/postshell
+%post	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun devel	-p	/sbin/postshell
+%postun	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %post	bsd -p /sbin/ldconfig
