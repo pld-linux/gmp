@@ -1,0 +1,240 @@
+--- gmp-4.3.1/configure.in.orig	2009-05-12 08:12:12.000000000 +0200
++++ gmp-4.3.1/configure.in	2009-10-03 08:32:51.312616803 +0200
+@@ -229,9 +229,12 @@
+ esac],
+ [enable_minithres=no])
+ 
++AC_ARG_WITH(cpu,
++AC_HELP_STRING([--with-cpu],
++	       [specify CPU type [[default=host_cpu]]]),
++[gmp_cpu=$withval], [gmp_cpu=$host_cpu])
+ 
+-
+-tmp_host=`echo $host_cpu | sed 's/\./_/'`
++tmp_host=`echo $gmp_cpu | sed 's/\./_/'`
+ AC_DEFINE_UNQUOTED(HAVE_HOST_CPU_$tmp_host)
+ GMP_DEFINE_RAW("define_not_for_expansion(\`HAVE_HOST_CPU_$tmp_host')", POST)
+ 
+@@ -405,7 +408,7 @@
+ 
+   alpha*-*-*)
+     AC_DEFINE(HAVE_HOST_CPU_FAMILY_alpha)
+-    case $host_cpu in
++    case $gmp_cpu in
+       alphaev5* | alphapca5*) path="alpha/ev5 alpha" ;;
+       alphaev67 | alphaev68 | alphaev7*)
+         path="alpha/ev67 alpha/ev6 alpha/ev5 alpha" ;;
+@@ -426,7 +429,7 @@
+     # compiler errors too easily and is rejected by GMP_PROG_CC_WORKS.  Each
+     # -mcpu=ev6 below has a fallback to -mcpu=ev56 for this reason.
+     #
+-    case $host_cpu in
++    case $gmp_cpu in
+       alpha)        gcc_cflags_cpu="-mcpu=ev4" ;;
+       alphaev5)     gcc_cflags_cpu="-mcpu=ev5" ;;
+       alphaev56)    gcc_cflags_cpu="-mcpu=ev56" ;;
+@@ -459,7 +462,7 @@
+     # Insns like ctlz which were never available as macros are always
+     # accepted and always generate their plain code.
+     #
+-    case $host_cpu in
++    case $gmp_cpu in
+       alpha)        gcc_cflags_asm="-Wa,-arch,ev4 -Wa,-mev4" ;;
+       alphaev5)     gcc_cflags_asm="-Wa,-arch,ev5 -Wa,-mev5" ;;
+       alphaev56)    gcc_cflags_asm="-Wa,-arch,ev56 -Wa,-mev56" ;;
+@@ -494,7 +497,7 @@
+ 	# DEC C V5.9-005 knows ev4, ev5, ev56, pca56, ev6.
+ 	# Compaq C V6.3-029 adds ev67.
+ 	#
+-	case $host_cpu in
++	case $gmp_cpu in
+ 	  alpha)       cc_cflags_cpu="-arch~ev4~-tune~ev4" ;;
+ 	  alphaev5)    cc_cflags_cpu="-arch~ev5~-tune~ev5" ;;
+ 	  alphaev56)   cc_cflags_cpu="-arch~ev56~-tune~ev56" ;;
+@@ -578,7 +581,7 @@
+     # (Can't remember why this isn't done already, have to check what .asm
+     # files are available in each and how they run on a typical 2.0 cpu.)
+     #
+-    case $host_cpu in
++    case $gmp_cpu in
+       hppa1.0*)    path="pa32" ;;
+       hppa7000*)   path="pa32/hppa1_1 pa32" ;;
+       hppa2.0* | hppa64)
+@@ -596,13 +599,13 @@
+     # probably be safe, but let's not take the chance.  In any case, a
+     # configuration like --host=hppa2.0 ABI=1.0 is far from optimal.
+     #
+-    case $host_cpu in
++    case $gmp_cpu in
+       hppa1.0*)           gcc_cflags_arch="-mpa-risc-1-0" ;;
+       *)                  # default to 7100
+                           gcc_cflags_arch="-mpa-risc-1-1" ;;
+     esac
+ 
+-    case $host_cpu in
++    case $gmp_cpu in
+       hppa1.0*)    cc_cflags="+O2" ;;
+       *)           # default to 7100
+                    cc_cflags="+DA1.1 +O2" ;;
+@@ -667,7 +670,7 @@
+     GMP_INCLUDE_MPN(ia64/ia64-defs.m4)
+     SPEED_CYCLECOUNTER_OBJ=ia64.lo
+ 
+-    case $host_cpu in
++    case $gmp_cpu in
+       itanium)   path="ia64/itanium  ia64" ;;
+       itanium2)  path="ia64/itanium2 ia64" ;;
+       *)         path="ia64" ;;
+@@ -677,7 +680,7 @@
+     gcc_32_cflags_optlist=$gcc_64_cflags_optlist
+ 
+     # gcc pre-release 3.4 adds -mtune itanium and itanium2
+-    case $host_cpu in
++    case $gmp_cpu in
+       itanium)   gcc_cflags_tune="-mtune=itanium" ;;
+       itanium2)  gcc_cflags_tune="-mtune=itanium2" ;;
+     esac
+@@ -738,7 +741,7 @@
+     # gcc 2.95 adds -mcpu32, -m68060.
+     # FIXME: Maybe "-m68020 -mnobitfield" would suit cpu32 on 2.7.2.
+     #
+-    case $host_cpu in
++    case $gmp_cpu in
+     m68020)  gcc_cflags_arch="-m68020" ;;
+     m68030)  gcc_cflags_arch="-m68030" ;;
+     m68040)  gcc_cflags_arch="-m68040" ;;
+@@ -750,7 +753,7 @@
+     # FIXME: m68k/mc68020 looks like it's ok for cpu32, but this wants to be
+     # tested.  Will need to introduce an m68k/cpu32 if m68k/mc68020 ever uses
+     # the bitfield instructions.
+-    case $host_cpu in
++    case $gmp_cpu in
+     [m680[234]0 | m68360])  path="m68k/mc68020 m68k" ;;
+     *)                      path="m68k" ;;
+     esac
+@@ -856,7 +859,7 @@
+     SPEED_CYCLECOUNTER_OBJ=powerpc.lo
+     cyclecounter_size=0
+ 
+-    case $host_cpu in
++    case $gmp_cpu in
+       powerpc740 | powerpc750)
+         path="powerpc32/750 powerpc32" ;;
+       powerpc7400 | powerpc7410)
+@@ -880,7 +883,7 @@
+     # done for all the others too.  But what would be the correct
+     # arrangements?
+     #
+-    case $host_cpu in
++    case $gmp_cpu in
+       powerpc401)   gcc_cflags_cpu="-mcpu=401" ;;
+       powerpc403)   gcc_cflags_cpu="-mcpu=403" ;;
+       powerpc405)   gcc_cflags_cpu="-mcpu=405" ;;
+@@ -919,7 +922,7 @@
+         # -qarch=ppc is needed, so ensure everything falls back to that.
+         # FIXME: Perhaps newer versions know more flavours.
+         #
+-	case $host_cpu in
++	case $gmp_cpu in
+ 	  powerpc403)   xlc_cflags_arch="-qarch=403 -qarch=ppc" ;;
+ 	  powerpc601)   xlc_cflags_arch="-qarch=601 -qarch=ppc" ;;
+ 	  powerpc602)   xlc_cflags_arch="-qarch=602 -qarch=ppc" ;;
+@@ -934,7 +937,7 @@
+ 
+     case $host in
+       POWERPC64_PATTERN)
+-        case $host_cpu in
++        case $gmp_cpu in
+ 	  powerpc970)		vmx_path="powerpc64/vmx" ;;
+ 	  *)			vmx_path="" ;;
+ 	esac
+@@ -1092,7 +1095,7 @@
+     any_testlist="sizeof-long-4"
+     GMP_INCLUDE_MPN(sparc32/sparc-defs.m4)
+ 
+-    case $host_cpu in
++    case $gmp_cpu in
+       sparcv8 | microsparc | turbosparc)
+         path="sparc32/v8 sparc32" ;;
+       supersparc)
+@@ -1117,7 +1120,7 @@
+     # latter would be used in the 64-bit ABI on systems like "*bsd" where
+     # abilist="64" only.
+     #
+-    case $host_cpu in
++    case $gmp_cpu in
+       sparc64 | sparcv9* | ultrasparc*)
+         gcc_cflags="$gcc_cflags -Wa,-xarch=v8plus" ;;
+       *)
+@@ -1135,7 +1138,7 @@
+     # gcc 3.2 adds nothing.
+     # gcc 3.3 adds ultrasparc3.
+     #
+-    case $host_cpu in
++    case $gmp_cpu in
+       supersparc)           gcc_cflags_cpu="-mcpu=supersparc -msupersparc" ;;
+       sparcv8 | microsparc | turbosparc)
+ 			    gcc_cflags_cpu="-mcpu=v8 -mv8" ;;
+@@ -1157,7 +1160,7 @@
+ 
+         # SunOS cc doesn't know -xarch, apparently always generating v7
+         # code, so make this optional
+-	case $host_cpu in
++	case $gmp_cpu in
+ 	  sparcv8 | microsparc | supersparc | turbosparc)
+ 					      cc_cflags_arch="-xarch=v8" ;;
+ 	  sparc64 | sparcv9* | ultrasparc*)   cc_cflags_arch="-xarch=v8plus" ;;
+@@ -1172,7 +1175,7 @@
+ 	# FIXME: Which of ultra, ultra2 or ultra2i is the best fallback for
+ 	# ultrasparc3?
+ 	#
+-	case $host_cpu in
++	case $gmp_cpu in
+ 	  supersparc)   cc_cflags_cpu="-xchip=super" ;;
+ 	  microsparc)   cc_cflags_cpu="-xchip=micro" ;;
+ 	  turbosparc)   cc_cflags_cpu="-xchip=micro2" ;;
+@@ -1184,7 +1187,7 @@
+ 	esac
+     esac
+ 
+-    case $host_cpu in
++    case $gmp_cpu in
+       sparc64 | sparcv9* | ultrasparc*)
+         case $host in
+           # Solaris 6 and earlier cannot run ABI=64 since it doesn't save
+@@ -1330,7 +1333,7 @@
+     # duplicate anything.
+     #
+     gcc_cflags_optlist="cpu arch"
+-    case $host_cpu in
++    case $gmp_cpu in
+       i386*)
+         gcc_cflags_cpu="-mtune=i386 -mcpu=i386 -m386"
+         gcc_cflags_arch="-march=i386"
+@@ -1415,7 +1418,7 @@
+         ;;
+     esac
+ 
+-    case $host_cpu in
++    case $gmp_cpu in
+       i386*)                path="x86" ;;
+       i486*)                path="x86/i486 x86" ;;
+       i586 | pentium)       path="x86/pentium x86" ;;
+@@ -1458,7 +1461,7 @@
+ 		      SQR_KARATSUBA_THRESHOLD SQR_TOOM3_THRESHOLD"
+     fi
+ 
+-    case $host_cpu in
++    case $gmp_cpu in
+       athlon64 | atom | core2 | pentium4 | x86_64)
+         cclist_64="gcc"
+         gcc_64_cflags="$gcc_64_cflags -m64"
+@@ -1475,7 +1478,7 @@
+             ;;
+         esac
+ 
+-	case $host_cpu in
++	case $gmp_cpu in
+ 	  athlon64 | x86_64)
+ 	    abilist="64 32"
+ 	    path_64="x86_64"
