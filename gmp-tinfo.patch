@@ -1,0 +1,13 @@
+--- gmp-4.3.1/configure.in.orig	2009-10-03 08:32:51.312616803 +0200
++++ gmp-4.3.1/configure.in	2009-10-03 08:33:58.340616803 +0200
+@@ -3216,8 +3216,10 @@
+ AC_CONFIG_FILES(demos/calc/calc-config.h:demos/calc/calc-config-h.in)
+ LIBCURSES=
+ if test $with_readline != no; then
++ AC_CHECK_LIB(tinfo, tputs, [LIBCURSES=-ltinfo],[
+   AC_CHECK_LIB(ncurses, tputs, [LIBCURSES=-lncurses],
+     [AC_CHECK_LIB(curses, tputs, [LIBCURSES=-lcurses])])
++ ])
+ fi
+ AC_SUBST(LIBCURSES)
+ use_readline=$with_readline
