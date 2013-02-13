@@ -12,17 +12,16 @@ Summary(pt_BR.UTF-8):	Biblioteca de precisão arbitrária da GNU
 Summary(uk.UTF-8):	Бібліотека GNU довільної точності
 Summary(ru.UTF-8):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	5.0.5
+Version:	5.1.1
 Release:	1
 License:	LGPL v3+
 Group:		Libraries
 Source0:	http://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.xz
-# Source0-md5:	8aef50959acec2a1ad41d144ffe0f3b5
+# Source0-md5:	485b1296e6287fa381e6015b19767989
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-multilib.patch
 Patch2:		%{name}-cpu.patch
 Patch3:		%{name}-tinfo.patch
-Patch4:		%{name}-am.patch
 URL:		http://gmplib.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.8
@@ -172,44 +171,6 @@ Bibliotecas estáticas para desenvolvimento com gmp.
 %description static -l ru.UTF-8
 Это статическая библиотека GNU произвольной точности.
 
-%package bsd
-Summary:	GNU arbitrary precision library - BSD-compatible MP library
-Summary(pl.UTF-8):	Biblioteka arytmetyczna GNU - biblioteka MP kompatybilna z BSD
-Group:		Libraries
-# doesn't require base
-
-%description bsd
-This package contains BSD-compatible MP library based on GNU MP.
-
-%description bsd -l pl.UTF-8
-Ten pakiet zawiera bibliotekę MP kompatybilną z BSD opartą na GNU MP.
-
-%package bsd-devel
-Summary:	GNU arbitrary precision library - BSD-compatible MP API
-Summary(pl.UTF-8):	Biblioteka arytmetyczna GNU - API MP kompatybilne z BSD
-Group:		Development/Libraries
-Requires:	%{name}-bsd = %{version}-%{release}
-
-%description bsd-devel
-This package contains BSD-compatible MP library header file.
-
-%description bsd-devel -l pl.UTF-8
-Ten pakiet zawiera plik nagłówkowy biblioteki MP kompatybilnej z BSD.
-
-%package bsd-static
-Summary:	GNU arbitrary precision library - BSD-compatible static MP library
-Summary(pl.UTF-8):	Biblioteka arytmetyczna GNU - biblioteka statyczna MP kompatybilna z BSD
-Group:		Development/Libraries
-Requires:	%{name}-bsd-devel = %{version}-%{release}
-
-%description bsd-static
-This package contains BSD-compatible MP static library based on GNU
-MP.
-
-%description bsd-static -l pl.UTF-8
-Ten pakiet zawiera bibliotekę statyczną MP kompatybilną z BSD opartą
-na GNU MP.
-
 %package c++
 Summary:	GNU arbitrary precision library - C++ interface
 Summary(pl.UTF-8):	Biblioteka arytmetyczna GNU - interfejs C++
@@ -260,7 +221,6 @@ arytmetycznej GNU.
 %endif
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 %build
 %{__libtoolize}
@@ -270,8 +230,7 @@ arytmetycznej GNU.
 %configure \
 	--with-cpu=%{_target_cpu} \
 	%{?with_cxx:--enable-cxx} \
-	--enable-fft \
-	--enable-mpbsd
+	--enable-fft
 
 %{__make}
 %{?with_tests:%{__make} check}
@@ -294,9 +253,6 @@ rm -rf $RPM_BUILD_ROOT
 %postun	devel -p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%post	bsd -p /sbin/ldconfig
-%postun	bsd -p /sbin/ldconfig
-
 %post	c++ -p /sbin/ldconfig
 %postun	c++ -p /sbin/ldconfig
 
@@ -316,20 +272,6 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgmp.a
-
-%files bsd
-%attr(755,root,root) %{_libdir}/libmp.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libmp.so.3
-
-%files bsd-devel
-%defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libmp.so
-%{_libdir}/libmp.la
-%{_includedir}/mp.h
-
-%files bsd-static
-%defattr(644,root,root,755)
-%{_libdir}/libmp.a
 
 %if %{with cxx}
 %files c++
