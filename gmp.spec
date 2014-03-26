@@ -12,12 +12,12 @@ Summary(pt_BR.UTF-8):	Biblioteca de precisão arbitrária da GNU
 Summary(uk.UTF-8):	Бібліотека GNU довільної точності
 Summary(ru.UTF-8):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	5.1.3
+Version:	6.0.0
 Release:	1
 License:	LGPL v3+
 Group:		Libraries
-Source0:	http://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.xz
-# Source0-md5:	e5fe367801ff067b923d1e6a126448aa
+Source0:	http://ftp.gnu.org/gnu/gmp/%{name}-%{version}a.tar.xz
+# Source0-md5:	1e6da4e434553d2811437aa42c7f7c76
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-multilib.patch
 Patch2:		%{name}-cpu.patch
