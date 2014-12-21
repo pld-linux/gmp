@@ -228,6 +228,9 @@ arytmetycznej GNU.
 %{__autoconf}
 %{__automake}
 %configure \
+%ifarch x32
+	ABI=x32 \
+%endif
 	--with-cpu=%{_target_cpu} \
 	%{?with_cxx:--enable-cxx} \
 	--enable-fft
