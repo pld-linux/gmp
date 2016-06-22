@@ -12,12 +12,12 @@ Summary(pt_BR.UTF-8):	Biblioteca de precisão arbitrária da GNU
 Summary(uk.UTF-8):	Бібліотека GNU довільної точності
 Summary(ru.UTF-8):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	6.1.0
+Version:	6.1.1
 Release:	1
 License:	LGPL v3+
 Group:		Libraries
-Source0:	http://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.xz
-# Source0-md5:	a9868ef2556ad6a2909babcd1428f3c7
+Source0:	http://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.lz
+# Source0-md5:	31cea5e383ebd3b520a9eaeb6638a530
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-multilib.patch
 Patch2:		%{name}-cpu.patch
@@ -27,9 +27,9 @@ BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.8
 %{?with_cxx:BuildRequires:	libstdc++-devel}
 BuildRequires:	libtool >= 2:1.4d-3
+BuildRequires:	lzip
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	texinfo
-BuildRequires:	xz
 Obsoletes:	libgmp3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
