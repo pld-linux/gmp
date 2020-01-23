@@ -12,21 +12,21 @@ Summary(pt_BR.UTF-8):	Biblioteca de precisão arbitrária da GNU
 Summary(uk.UTF-8):	Бібліотека GNU довільної точності
 Summary(ru.UTF-8):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	6.1.2
+Version:	6.2.0
 Release:	1
 License:	LGPL v3+
 Group:		Libraries
-Source0:	http://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.lz
-# Source0-md5:	205e230117debf3754944509350627a1
+Source0:	https://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.lz
+# Source0-md5:	e3e08ac185842a882204ba3c37985127
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-multilib.patch
 Patch2:		%{name}-cpu.patch
 Patch3:		%{name}-tinfo.patch
-URL:		http://gmplib.org/
+URL:		https://gmplib.org/
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.8
 %{?with_cxx:BuildRequires:	libstdc++-devel}
-BuildRequires:	libtool >= 2:1.4d-3
+BuildRequires:	libtool >= 2:2
 BuildRequires:	lzip
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	texinfo
@@ -215,7 +215,7 @@ arytmetycznej GNU.
 %prep
 %setup -q
 %patch0 -p1
-%ifarch %{ix86} %{x8664} ppc ppc64 s390 s390x sparc sparcv9 sparc64
+%ifarch %{ix86} %{x8664} x32 %{arm} aarch64 ppc ppc64 s390 s390x sparc sparcv9 sparc64
 # ugly hack, don't apply on other archs (also recheck sizes on each upgrade)
 %patch1 -p1
 %endif
@@ -270,6 +270,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libgmp.so
 %{_libdir}/libgmp.la
 %{_includedir}/gmp.h
+%{_pkgconfigdir}/gmp.pc
 %{_infodir}/gmp.info*
 
 %files static
@@ -287,6 +288,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libgmpxx.so
 %{_libdir}/libgmpxx.la
 %{_includedir}/gmpxx.h
+%{_pkgconfigdir}/gmpxx.pc
 
 %files c++-static
 %defattr(644,root,root,755)

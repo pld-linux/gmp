@@ -5,8 +5,8 @@
  #define __GMP_HAVE_HOST_CPU_FAMILY_power   @HAVE_HOST_CPU_FAMILY_power@
  #define __GMP_HAVE_HOST_CPU_FAMILY_powerpc @HAVE_HOST_CPU_FAMILY_powerpc@
 -#define GMP_LIMB_BITS                      @GMP_LIMB_BITS@
-+/* ugly hack: limb size differs depending on ABI */
-+#if defined(__arch64__) || defined(__powerpc64__) || defined(__s390x__) || defined(__x86_64__)
++/* ugly hack: limb size differs depending on ABI; note: x32 ABI uses longlong limb, so also 64 bits */
++#if defined(__arch64__) || defined(__powerpc64__) || defined(__s390x__) || defined(__x86_64__) || defined(_LP64)
 +#define GMP_LIMB_BITS                      64
 +#else
 +#define GMP_LIMB_BITS                      32
