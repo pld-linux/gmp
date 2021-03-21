@@ -1,8 +1,9 @@
---- gmp-4.2/doc/gmp.texi.orig	Thu Oct  5 01:24:56 2000
-+++ gmp-4.2/doc/gmp.texi	Fri Aug 10 14:52:52 2001
-@@ -9,9 +9,10 @@
- @end iftex
- @comment %**end of header
+diff -urNp -x '*.orig' gmp-6.2.1.org/doc/gmp.texi gmp-6.2.1/doc/gmp.texi
+--- gmp-6.2.1.org/doc/gmp.texi	2020-11-14 19:45:09.000000000 +0100
++++ gmp-6.2.1/doc/gmp.texi	2021-03-21 12:57:05.678931009 +0100
+@@ -64,9 +64,10 @@ software''.  A copy of the license is in
+ @c  may want to search-and-replace to some online source.
+ @c
  
 -@dircategory GNU libraries
 +@dircategory Libraries:
@@ -12,4 +13,4 @@
 +					Library
  @end direntry
  
- @c smallbook
+ @c  html <meta name="description" content="...">
