@@ -12,12 +12,12 @@ Summary(pt_BR.UTF-8):	Biblioteca de precisão arbitrária da GNU
 Summary(uk.UTF-8):	Бібліотека GNU довільної точності
 Summary(ru.UTF-8):	Библиотека GNU произвольной точности
 Name:		gmp
-Version:	6.2.1
+Version:	6.3.0
 Release:	1
 License:	LGPL v3+
 Group:		Libraries
 Source0:	https://ftp.gnu.org/gnu/gmp/%{name}-%{version}.tar.lz
-# Source0-md5:	03a31d8cbaf29d136252f8f38875ed82
+# Source0-md5:	db3f4050677df3ff2bd23422c0d3caa1
 Patch0:		%{name}-info.patch
 Patch1:		%{name}-multilib.patch
 Patch2:		%{name}-cpu.patch
@@ -30,7 +30,7 @@ BuildRequires:	libtool >= 2:2
 BuildRequires:	lzip
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	texinfo
-Obsoletes:	libgmp3
+Obsoletes:	libgmp3 < 4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -107,7 +107,7 @@ Summary(uk.UTF-8):	Інструменти розробки для бібліот
 Summary(ru.UTF-8):	Инструменты разработки для библиотеки GNU произвольной точности
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Obsoletes:	libgmp3-devel
+Obsoletes:	libgmp3-devel < 4
 
 %description devel
 The header files and documentation for using the GNU MP arbitrary
