@@ -214,13 +214,13 @@ arytmetycznej GNU.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P 0 -p1
 %ifarch %{ix86} %{x8664} x32 %{arm} aarch64 ppc ppc64 s390 s390x sparc sparcv9 sparc64
 # ugly hack, don't apply on other archs (also recheck sizes on each upgrade)
-%patch1 -p1
+%patch -P 1 -p1
 %endif
-%patch2 -p1
-%patch3 -p1
+%patch -P 2 -p1
+%patch -P 3 -p1
 
 %build
 %{__libtoolize}
